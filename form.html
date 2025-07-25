@@ -203,9 +203,32 @@
     <script src="reviews.js"></script>
     
     <script>
-        // Initialize EmailJS with your public key
-        // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+        // Initialize EmailJS with your public key (ALREADY CONFIGURED)
         emailjs.init('xjJNtr0LMH0Rj90ea');
+
+        // Get the current website base URL
+        function getBaseURL() {
+            return window.location.protocol + '//' + window.location.host + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        }
+
+        // Generate secure approval/rejection links
+        function generateApprovalLinks(reviewId) {
+            const baseURL = getBaseURL();
+            
+            // Simple security token (you can make this more sophisticated)
+            const approveToken = btoa(reviewId + 'approve').substring(0, 8);
+            const rejectToken = btoa(reviewId + 'reject').substring(0, 8);
+            
+            const approvalLink = `${baseURL}admin-approve.html?action=approve&id=${reviewId}&token=${approveToken}`;
+            const rejectionLink = `${baseURL}admin-approve.html?action=reject&id=${reviewId}&token=${rejectToken}`;
+            
+            console.log('Generated approval links:', { approvalLink, rejectionLink });
+            
+            return {
+                approvalLink,
+                rejectionLink
+            };
+        }
 
         // Form validation and submission
         document.addEventListener('DOMContentLoaded', function() {
@@ -307,11 +330,11 @@
                     errorMessage.classList.remove('hidden');
                 }
 
-                // Auto-hide after 5 seconds
+                // Auto-hide after 8 seconds
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
                     errorMessage.classList.add('hidden');
-                }, 5000);
+                }, 8000);
             }
 
             // Form submission
@@ -346,6 +369,9 @@
                     // Generate unique review ID
                     const reviewId = 'review_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
+                    // Generate approval/rejection links
+                    const links = generateApprovalLinks(reviewId);
+
                     // Store as pending review
                     if (window.ReviewManager) {
                         window.ReviewManager.storePendingReview({
@@ -354,19 +380,27 @@
                             timestamp: new Date().toISOString(),
                             status: 'pending'
                         });
+                        console.log('Review stored as pending:', reviewId);
+                    } else {
+                        console.warn('ReviewManager not available, review not stored locally');
                     }
 
-                    // Send email via EmailJS
-                    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
-                    const response = await emailjs.send('service_o51dudc', 'template_gaawz9y', {
+                    // Send email via EmailJS with clickable links (USING YOUR EXISTING CREDENTIALS)
+                    const emailData = {
                         from_name: reviewData.fullName,
                         from_email: reviewData.email,
                         relationship: reviewData.relationship,
                         message: reviewData.review,
                         to_email: 'alexander.ofori@gmail.com',
                         review_id: reviewId,
-                        submission_date: new Date().toLocaleDateString()
-                    });
+                        submission_date: new Date().toLocaleDateString(),
+                        approval_link: links.approvalLink,
+                        rejection_link: links.rejectionLink
+                    };
+
+                    console.log('Sending email with data:', emailData);
+
+                    const response = await emailjs.send('service_o51dudc', 'template_gaawz9y', emailData);
 
                     console.log('Email sent successfully:', response);
                     showMessage('success');
@@ -375,7 +409,24 @@
 
                 } catch (error) {
                     console.error('Error sending email:', error);
-                    showMessage('error', 'Failed to send review. Please check your internet connection and try again.');
+                    
+                    // Provide more specific error messages
+                    let errorMsg = 'Failed to send review. ';
+                    if (error.text) {
+                        if (error.text.includes('template')) {
+                            errorMsg += 'Email template issue - please contact support.';
+                        } else if (error.text.includes('service')) {
+                            errorMsg += 'Email service issue - please contact support.';
+                        } else if (error.text.includes('user')) {
+                            errorMsg += 'Email authentication issue - please contact support.';
+                        } else {
+                            errorMsg += 'Email service error: ' + error.text;
+                        }
+                    } else {
+                        errorMsg += 'Please check your internet connection and try again.';
+                    }
+                    
+                    showMessage('error', errorMsg);
                 } finally {
                     setLoadingState(false);
                 }
