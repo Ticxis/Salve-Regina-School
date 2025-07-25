@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salve Regina School - SRS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body id="top">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+            </a>
+            <h1>Salve Regina School</h1>
+         </div>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="campus.html">Campus Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="text-container">
+                    <span class="welcome-text">Welcome to&nbsp;</span>
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="cursor" id="cursor"></span>
+                </span>
+            </h1>
+            <p>Shaping Future Leaders with Excellence in Education</p>
+            <button onclick="window.location.href='#admissions'" class="btn shine">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 style="text-align: center;" class="drop-in">About Us</h2>
+            <br><br>
+            <div class="about-content">
+                <div class="about-text">
+                    <p style="text-align: justify;">Salve Regina School is a premier private school dedicated to fostering academic excellence, personal growth, and global citizenship. Founded in 1985, our institution combines rigorous academics with a nurturing environment.</p>
+                    <p style="text-align: justify;">Our vision is to provide top-notch education that builds into the creation, in our learners, first class global citizenship with excellent skills and confidence.</p>
+                    <!-- <a href="#contact" class="btn secondary">Learn More</a> -->
+                    <button onclick="window.location.href='#about'" class="btn shine">Learn More</button>
+                </div>
+                <img src="images/school_building_4.jpg" alt="Students in Classroom" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <div class="container">
+            <h2 style="text-align: center;" class="drop-in">Academics</h2><br><br>
+            <div class="academics-grid">
+                <div class="card">
+                    <img src="images/image3.jpg" alt="Preschool">
+                    <h3>PreSchool</h3>
+                    <p>Our cutting-edge STEM curriculum prepares students for careers in science, technology, engineering, and mathematics.</p>
+                </div>
+                <div class="card">
+                    <img src="images/image13.jpg" alt="Primary">
+                    <h3>Primary</h3>
+                    <p>From visual arts to literature, our programs nurture creativity and critical thinking.</p>
+                </div>
+                <div class="card">
+                    <img src="images/image10.jpg" alt="JHS">
+                    <h3>JHS</h3>
+                    <p>Our athletic programs promote teamwork, discipline, and physical well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Admissions Section -->
+<section id="admissions" class="admissions">
+    <div class="container">
+        <h2 class="drop-in">Admissions</h2><br><br>
+        <p class="typewriter">Join our vibrant community! Our admissions process is designed to identify students who will thrive in our dynamic environment.</p>
+        <div class="admissions-steps">
+            <div class="step slide-from-top" data-animation-delay="0.2s">
+                <h3>Step 1</h3>
+                <p>Submit your online application form.</p>
+            </div>
+            <div class="step slide-from-bottom" data-animation-delay="0.4s">
+                <h3>Step 2</h3>
+                <p>Schedule a campus tour and interview.</p>
+            </div>
+            <div class="step slide-from-top" data-animation-delay="0.6s">
+                <h3>Step 3</h3>
+                <p>Receive your admission decision.</p>
+            </div>
+        </div>
+        <button onclick="window.location.href='contact.html'" class="btn shine">Start Application</button>
+    </div>
+</section>
+
+    <!-- Campus Life Section -->
+    <section id="campus" class="campus">
+        <div class="container">
+            <h2 style="text-align: center;">Campus Life</h2><br><br>
+            <div class="campus-gallery">
+                <div class="slider">
+                    <img src="images/image6.jpg" alt="Campus Life 1">
+                    <img src="images/image7.jpg" alt="Campus Life 2">
+                    <img src="images/image9.jpg" alt="Campus Life 3">
+                    <img src="images/image5.jpg" alt="Campus Life 4">
+                    <img src="images/image8.jpg" alt="Campus Life 5">
+                </div>
+                <button class="nav-arrow prev">&#10094;</button>
+                <button class="nav-arrow next">&#10095;</button>
+                <div class="dots"></div>
+            </div>
+            <p>Our campus is a vibrant hub of activity, with state-of-the-art facilities, extracurricular clubs, and a supportive community.</p>
+        </div>
+    </section>
+
+    <!-- Animated counter -->
+    <section id="stats">
+        <div class="stats-container">
+          <!-- <h2 class="stats-title">Our Achievements</h2> -->
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="counter" data-target="25">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Years of Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="44">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Professional Teachers</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="26">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Classes</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="753">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Students</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+  
+    <section class="section-carousel-one">
+        <div class="section-container-one">
+            <h2 class="section-cont">Reviews</h2><br><br>
+            <div class="carousel-container">
+                <div class="carousel-class"  id="reviewCarousel">
+                    
+                </div>
+            </div>
+            <div class="controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+
+
+
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Campus Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <a href="form.html" class="back-to-top-container" aria-label="Back to top">
+                <div class="back-to-top"></div>
+                <span class="back-to-top-text">Enter a review</span>
+            </a>
+        </div>
+        <!-- <div class="footer_div">
+            <p>&copy;2025 Salve Regina School. All rights reserved</p>
+        </div> -->
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+
+    <script defer src="script.js"></script>
+    <script src="reviews.js"></script>
+    <script src="global-db.js"></script>
+</body>
+</html>

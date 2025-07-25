@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="admissions.css">
+    <title>Admissions - Salve Regina School</title>
+        
+</head>
+<body>
+   <!-- Header -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+            </a>
+            <h1>Salve Regina School</h1>
+         </div>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="campus.html">Campus Life</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="images/image28.jpg" alt="Salve Regina School Academics" class="hero-img">
+        <div class="hero-overlay">
+            <h2>Admission at Salve Regina School</h2>
+            <p>Our innovative curriculum and dedicated faculty empower students to excel in a dynamic, global world through rigorous academics and creative learning opportunities.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <h2 class="animate-in">Admission</h2>
+        <p class="animate-in">Join our vibrant school community.</p>
+    </section>
+
+    <!-- Main Content Section -->
+<main class="container">
+    <!-- Text and Video Section -->
+    <section class="flex-section">
+        <div>
+            <h2>Welcome to Our Admissions Process</h2>
+            <p>
+                At our school, we are committed to fostering a nurturing and inclusive environment where every student can thrive. Our admissions process is designed to be transparent and welcoming, ensuring that prospective students and their families feel supported every step of the way. We value diversity, creativity, and academic curiosity, and we look forward to getting to know you and your aspirations.
+            </p>
+            <p>
+                Our curriculum is tailored to challenge and inspire students, preparing them for success in an ever-changing world. From our dedicated faculty to our state-of-the-art facilities, we provide a holistic education that balances academics, extracurricular activities, and personal growth. Whether you're interested in STEM, the arts, or athletics, our school offers opportunities to explore your passions and develop your talents.
+            </p>
+            <p>
+                To apply, we invite you to explore our admissions requirements and deadlines, which are outlined in detail on this page. Our admissions team is here to answer any questions and guide you through the process. We can’t wait to welcome you to our school family!
+            </p>
+        </div>
+        <div>
+            <div class="video-container">
+                <!-- Replace with your actual video file path -->
+                <video controls poster="images/school_building_3.jpg">
+                    <source src="images/salve_regina_documentary.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image and Text Section -->
+    <section class="flex-sections">
+        <h2>Why Choose Our School?</h2>
+        <div class="image-wrap">
+            <img src="images/board5.jpg" alt="School Campus">
+        </div>
+        <div class="text-wrap">
+            <p>
+                Our school is more than just a place to learn—it’s a community where students grow, connect, and discover their potential. With a focus on personalized education, we ensure that every student receives the support they need to succeed. Our campus is equipped with modern facilities, and our dedicated staff are passionate about helping students achieve their goals. Join us and become part of a legacy of excellence and opportunity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Admission Process Section -->
+    <section class="admission-process">
+        <h2>Admission Process</h2>
+        <div class="step-container">
+            <div class="step-item">
+                <div class="step-title">Inquiry</div>
+                <div class="step-circle active" onclick="showStep(1, this)">1</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Application</div>
+                <div class="step-circle" onclick="showStep(2, this)">2</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Assessment</div>
+                <div class="step-circle" onclick="showStep(3, this)">3</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Interview</div>
+                <div class="step-circle" onclick="showStep(4, this)">4</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Decision</div>
+                <div class="step-circle" onclick="showStep(5, this)">5</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Enrollment</div>
+                <div class="step-circle" onclick="showStep(6, this)">6</div>
+            </div>
+        </div>
+        <div class="process-box" id="process-box">
+            <div id="step-1" class="step-content active">
+                <p>
+                    Begin by contacting our admissions office to express your interest. You can reach out via our online inquiry form, email, or phone. Our team will provide you with detailed information about our programs and the admissions process.
+                </p>
+            </div>
+            <div id="step-2" class="step-content">
+                <p>
+                    Complete and submit the online application form, including all required documents such as transcripts, recommendation letters, and a personal statement. Ensure you meet the application deadlines for your desired academic year.
+                </p>
+            </div>
+            <div id="step-3" class="step-content">
+                <p>
+                    Applicants may be required to take an entrance assessment to evaluate academic readiness. This may include standardized tests or school-specific evaluations, depending on the grade level.
+                </p>
+            </div>
+            <div id="step-4" class="step-content">
+                <p>
+                    Schedule an interview with our admissions team. This is an opportunity for us to learn more about the applicant and for families to ask questions about our school’s programs and values.
+                </p>
+            </div>
+            <div id="step-5" class="step-content">
+                <p>
+                    After reviewing all application materials, assessments, and interviews, our admissions committee will make a decision. You will be notified of the outcome via email or phone.
+                </p>
+            </div>
+            <div id="step-6" class="step-content">
+                <p>
+                    Upon acceptance, complete the enrollment process by submitting the enrollment agreement and any required deposits. Our team will guide you through orientation and next steps to prepare for the school year.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Inquiry</div>
+            <div class="step-card-content">
+                <p>
+                    Begin by contacting our admissions office to express your interest. You can reach out via our online inquiry form, email, or phone. Our team will provide you with detailed information about our programs and the admissions process.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Application</div>
+            <div class="step-card-content">
+                <p>
+                    Complete and submit the online application form, including all required documents such as transcripts, recommendation letters, and a personal statement. Ensure you meet the application deadlines for your desired academic year.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Assessment</div>
+            <div class="step-card-content">
+                <p>
+                    Applicants may be required to take an entrance assessment to evaluate academic readiness. This may include standardized tests or school-specific evaluations, depending on the grade level.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Interview</div>
+            <div class="step-card-content">
+                <p>
+                    Schedule an interview with our admissions team. This is an opportunity for us to learn more about the applicant and for families to ask questions about our school’s programs and values.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Decision</div>
+            <div class="step-card-content">
+                <p>
+                    After reviewing all application materials, assessments, and interviews, our admissions committee will make a decision. You will be notified of the outcome via email or phone.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Enrollment</div>
+            <div class="step-card-content">
+                <p>
+                    Upon acceptance, complete the enrollment process by submitting the enrollment agreement and any required deposits. Our team will guide you through orientation and next steps to prepare for the school year.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Campus Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="footer_div">
+            <p>&copy;2025 Salve Regina School. All rights reserved</p>
+        </div> -->
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+    <script src="admissions.js"></script>
+</body>
+</html>

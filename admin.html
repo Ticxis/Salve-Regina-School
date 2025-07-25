@@ -1,0 +1,117 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Academy - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="placeholder-logo.png" alt="Elite Academy Logo" id="school-logo">
+            <h1>Elite Academy Admin</h1>
+        </div>
+        <div class="admin-nav">
+            <button class="btn secondary" id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <section class="admin-section">
+        <div class="container">
+            <!-- Login Form (Hidden after login) -->
+            <div id="login-form" class="admin-form">
+                <h2>Admin Login</h2>
+                <input type="text" id="admin-username" placeholder="Username" required>
+                <input type="password" id="admin-password" placeholder="Password" required>
+                <button class="btn" onclick="handleLogin()">Login</button>
+            </div>
+
+            <!-- Document Upload (Shown after login) -->
+            <div id="admin-dashboard" class="admin-dashboard hidden">
+                <h2>Document Management</h2>
+                <div class="upload-form">
+                    <h3>Upload Academic Calendar or Documents</h3>
+                    <input type="text" id="document-title" placeholder="Document Title" required>
+                    <select id="document-type" required>
+                        <option value="" disabled selected>Select Document Type</option>
+                        <option value="calendar">Academic Calendar</option>
+                        <option value="policy">School Policy</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="file" id="document-file" accept=".pdf,.doc,.docx" required>
+                    <button class="btn" onclick="handleUpload()">Upload Document</button>
+                </div>
+                <div class="document-list">
+                    <h3>Uploaded Documents</h3>
+                    <table id="document-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>File</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="document-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Elite Academy. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="index.html">Back to Main Site</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

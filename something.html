@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Wrap with Heading Above - Full Width</title>
+    <style>
+        .flex-section {
+            width: 100%; /* Full page width */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0; /* Remove all margins */
+            padding: 0; /* Remove all padding */
+        }
+        .flex-section h2 {
+            margin: 20px 0; /* Vertical spacing for heading */
+            padding-left: 20px; /* Optional: slight indent for heading */
+        }
+        .image-wrap {
+            float: left; /* Float the image container */
+            margin: 0 20px 20px 20px; /* Spacing: top, right, bottom, left */
+        }
+        .image-wrap img {
+            max-width: 200px; /* Adjust image size */
+            display: block; /* Ensures image behaves as a block */
+        }
+        .text-wrap {
+            overflow: hidden; /* Clears the float for text wrapping */
+            width: 100%; /* Ensures text spans full width */
+            padding: 0 20px 20px 0; /* Optional: padding for text aesthetics */
+        }
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            .flex-section h2 {
+                padding-left: 10px; /* Reduced indent for mobile */
+            }
+            .image-wrap {
+                float: none;
+                margin: 0 auto 20px;
+                text-align: center;
+            }
+            .image-wrap img {
+                max-width: 100%;
+            }
+            .text-wrap {
+                width: 100%;
+                padding: 0 10px 20px 10px; /* Adjusted padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="flex-section">
+        <h2>Why Choose Our School?</h2>
+        <div class="image-wrap">
+            <img src="images/board5.jpg" alt="School Campus">
+        </div>
+        <div class="text-wrap">
+            <p>
+                Our school is more than just a place to learn—it’s a community where students grow, connect, and discover their potential. With a focus on personalized education, we ensure that every student receives the support they need to succeed. Our campus is equipped with modern facilities, and our dedicated staff are passionate about helping students achieve their goals. Join us and become part of a legacy of excellence and opportunity.
+            </p>
+        </div>
+    </section>
+</body>
+</html>
