@@ -1030,53 +1030,6 @@ body {
 }
 
 
-
-
-
-
-/* Responsive Design */
-@media (max-width: 955px) {
-    .navbar {
-        display: block;
-        flex-direction: column;
-        position: sticky;
-        width: 100%;
-    }
-
-    #logo {
-        align-items: center;
-        display: flex;
-        float: left;  
-    }
-
-    .nav-links li {
-        display: list-item;
-    }
-
-    .nav-links li a {
-        display: inline-block;
-        padding: 15px;
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .about-content, .contact-content {
-        flex-direction: column;
-    }
-
-    .admissions-steps {
-        flex-direction: column;
-    }
-}
-
-
 /* About Section Styles */
 .about {
     padding: 60px 0;
@@ -1625,19 +1578,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .section-carousel-one {
     padding: 4rem 0;
     background-color: #ffffff;
@@ -1715,6 +1655,6 @@ body {
         flex: 0 0 40%;
     }
     h2 {
-        font-size: 20px;
+        font-size: 2px;
     }
 }
