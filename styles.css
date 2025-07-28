@@ -1073,7 +1073,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 970px) {
     .about-content {
-        flex-direction: column;
+        flex-direction: co3lumn;
         text-align: center;
     }
 
