@@ -1,0 +1,36 @@
+{
+    "boardMembers": [
+      {
+        "id": 1,
+        "name": "Dr. Christian Addai-Poku",
+        "title": "Board Member",
+        "image": "images/board2.jpg",
+        "excerpt": "With over 20 years of experience in education, Dr. Addai-Poku leads with a vision for holistic student development.",
+        "story": "Dr. Christian Addai-Poku brings over two decades of educational excellence to Salve Regina School. His visionary leadership has transformed numerous educational institutions across Ghana, focusing on innovative teaching methodologies and student-centered learning approaches. Dr. Addai-Poku holds a Ph.D. in Educational Leadership from the University of Ghana and has authored several publications on modern educational practices. His commitment to holistic student development encompasses not only academic achievement but also character building, critical thinking, and global citizenship. Under his guidance, the school has implemented cutting-edge curricula that prepare students for the challenges of the 21st century while maintaining strong moral foundations."
+      },
+      {
+        "id": 2,
+        "name": "Rev. Prof. Alexander Kyei Edwards",
+        "title": "Board Member",
+        "image": "images/board1.jpg",
+        "excerpt": "Prof. Edwards oversees our curriculum, ensuring academic rigor and innovation.",
+        "story": "Rev. Prof. Alexander Kyei Edwards is a distinguished academic and spiritual leader who brings a unique perspective to educational governance. With a professorial background in theology and education, he has spent over 15 years developing curricula that balance intellectual growth with moral development. Prof. Edwards holds multiple degrees including a Master's in Divinity and a Ph.D. in Educational Philosophy. His innovative approach to curriculum design emphasizes critical thinking, ethical reasoning, and social responsibility. He has been instrumental in integrating values-based education into the academic framework, ensuring that students not only excel academically but also develop strong character traits that will serve them throughout their lives."
+      },
+      {
+        "id": 3,
+        "name": "Miss Comfort Henrietta Suglo",
+        "title": "Board Member",
+        "image": "images/board3.jpg",
+        "excerpt": "Miss Suglo champions student welfare and community engagement through innovative programs.",
+        "story": "Miss Comfort Henrietta Suglo is a passionate advocate for student welfare and community development. With a background in social work and community development, she brings a deep understanding of student needs and community dynamics to the board. Miss Suglo has over 12 years of experience working with educational institutions to create supportive environments that foster both academic and personal growth. She has pioneered several community outreach programs that connect the school with local families and organizations. Her expertise in student counseling and mentorship has been invaluable in developing comprehensive support systems that ensure every student feels valued and supported in their educational journey."
+      },
+      {
+        "id": 4,
+        "name": "Mr. James Obeng",
+        "title": "Board Member",
+        "image": "images/board4.jpg",
+        "excerpt": "Mr. Obeng supports student well-being, fostering a nurturing environment.",
+        "story": "Mr. James Obeng is a dedicated professional with extensive experience in educational administration and student affairs. His career spans over 18 years in various educational settings, where he has consistently demonstrated his commitment to creating nurturing learning environments. Mr. Obeng holds a Master's degree in Educational Administration and has specialized training in student counseling and behavioral psychology. He has developed and implemented numerous programs focused on student mental health, peer support systems, and academic counseling. His holistic approach to student well-being encompasses academic support, emotional guidance, and career counseling, ensuring that students receive comprehensive support throughout their educational journey at Salve Regina School."
+      }
+    ]
+  }

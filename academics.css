@@ -63,6 +63,19 @@ body {
     transform: translateY(-3px);
 }
 
+/* Active page styling - same as hover but persistent */
+.nav-links a.active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 0 15px #163f5a;
+    transform: translateY(-3px);
+}
+
+.nav-links a.active:hover {
+    background-color: #2980b9; 
+    transform: translateY(-3px);
+}
+
   .hamburger {
     display: none;
     font-size: 30px;
