@@ -22,7 +22,7 @@
         "title": "Board Member",
         "image": "images/board3.jpg",
         "excerpt": "Miss Suglo champions student welfare and community engagement through innovative programs.",
-        "story": "Miss Comfort Henrietta Suglo is a passionate advocate for student welfare and community development. With a background in social work and community development, she brings a deep understanding of student needs and community dynamics to the board. Miss Suglo has over 12 years of experience working with educational institutions to create supportive environments that foster both academic and personal growth. She has pioneered several community outreach programs that connect the school with local families and organizations. Her expertise in student counseling and mentorship has been invaluable in developing comprehensive support systems that ensure every student feels valued and supported in their educational journey."
+        "story": "Miss Comfort Henrietta Suglo is a retired District Director of Health Services and a seasoned Public Health Specialist with over two decades of distinguished service in health administration, human resource management, and community health development. Her career has been marked by strong leadership in strategic planning, capacity building, and the coordination of impactful health interventions across both rural and urban settings. She has successfully led numerous health outreach initiatives during national health emergencies, ensuring that underserved populations received critical care and life-saving public health education. In addition to her clinical and administrative accomplishments, Miss Suglo played a pivotal role in developing a financial manual for a Catholic Friendly Society and has expertly managed large-scale events, some hosting over 500 participants demonstrating her exceptional organizational abilities and collaborative approach. Rooted in faith, compassion, and integrity, Miss Suglo remains actively engaged in community service. She volunteers in youth development programs, focusing on supporting vulnerable adolescents. As a school board member, Miss Suglo brings a wealth of experience in governance, policy implementation, and community engagement. Her extensive background positions her to contribute meaningfully to advancing academic excellence, enhancing student welfare, and upholding the school’s mission and values. She is deeply committed to nurturing an educational environment where every student can grow intellectually, socially, and morally"
       },
       {
         "id": 4,
@@ -30,7 +30,31 @@
         "title": "Board Member",
         "image": "images/board4.jpg",
         "excerpt": "Mr. Obeng supports student well-being, fostering a nurturing environment.",
-        "story": "Mr. James Obeng is a dedicated professional with extensive experience in educational administration and student affairs. His career spans over 18 years in various educational settings, where he has consistently demonstrated his commitment to creating nurturing learning environments. Mr. Obeng holds a Master's degree in Educational Administration and has specialized training in student counseling and behavioral psychology. He has developed and implemented numerous programs focused on student mental health, peer support systems, and academic counseling. His holistic approach to student well-being encompasses academic support, emotional guidance, and career counseling, ensuring that students receive comprehensive support throughout their educational journey at Salve Regina School."
+        "story": "Mr. James Obeng is an experienced educator and educational leader with a deep passion for transforming teaching and learning. He is currently the Acting Ashanti Regional Director of the National Teaching Council, where he provides strategic leadership in teacher professional development and regulatory functions. He holds an M.Phil. in English Language from the University of Cape Coast and has held key leadership roles in senior high schools, including Assistant Headmaster and Secretary to Boards of Governors. He has also served as a part-time English Language lecturer for the Distance Learning Programme at the University of Education, Winneba. Mr. Obeng has also served as a Council Member of Wesley College of Education.  He has been actively involved in the Deeper Life Bible Church, serving as Regional Campus Coordinator since 2008, supporting the spiritual and academic development of students and youth. He brings to the board a collaborative leadership style, problem-solving ability, and a commitment to inclusive and impactful education."
+      },
+      {
+        "id": 5,
+        "name": "Firstname Lastname",
+        "title": "Board Member",
+        "image": "images/board1.jpg",
+        "excerpt": "Prof. Edwards oversees our curriculum, ensuring academic rigor and innovation.",
+        "story": "Rev. Prof. Alexander Kyei Edwards is a distinguished academic and spiritual leader who brings a unique perspective to educational governance. With a professorial background in theology and education, he has spent over 15 years developing curricula that balance intellectual growth with moral development. Prof. Edwards holds multiple degrees including a Master's in Divinity and a Ph.D. in Educational Philosophy. His innovative approach to curriculum design emphasizes critical thinking, ethical reasoning, and social responsibility. He has been instrumental in integrating values-based education into the academic framework, ensuring that students not only excel academically but also develop strong character traits that will serve them throughout their lives."
+      },
+      {
+        "id": 6,
+        "name": "Firstname Lastname",
+        "title": "Board Member",
+        "image": "images/board1.jpg",
+        "excerpt": "Prof. Edwards oversees our curriculum, ensuring academic rigor and innovation.",
+        "story": "Rev. Prof. Alexander Kyei Edwards is a distinguished academic and spiritual leader who brings a unique perspective to educational governance. With a professorial background in theology and education, he has spent over 15 years developing curricula that balance intellectual growth with moral development. Prof. Edwards holds multiple degrees including a Master's in Divinity and a Ph.D. in Educational Philosophy. His innovative approach to curriculum design emphasizes critical thinking, ethical reasoning, and social responsibility. He has been instrumental in integrating values-based education into the academic framework, ensuring that students not only excel academically but also develop strong character traits that will serve them throughout their lives."
+      },
+      {
+        "id": 7,
+        "name": "Firstname Lastname",
+        "title": "Board Member",
+        "image": "images/board1.jpg",
+        "excerpt": "Prof. Edwards oversees our curriculum, ensuring academic rigor and innovation.",
+        "story": "Rev. Prof. Alexander Kyei Edwards is a distinguished academic and spiritual leader who brings a unique perspective to educational governance. With a professorial background in theology and education, he has spent over 15 years developing curricula that balance intellectual growth with moral development. Prof. Edwards holds multiple degrees including a Master's in Divinity and a Ph.D. in Educational Philosophy. His innovative approach to curriculum design emphasizes critical thinking, ethical reasoning, and social responsibility. He has been instrumental in integrating values-based education into the academic framework, ensuring that students not only excel academically but also develop strong character traits that will serve them throughout their lives."
       }
     ]
   }

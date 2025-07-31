@@ -8,6 +8,7 @@ body {
     background-color: #f0f4f8;
     color: #333;
     line-height: 1.6;
+    padding-top: 70px; /* Add this line */
 }
 
 .fa-users, .fa-lightbulb, .fa-medal, .fa-book, .fa-balance-scale {
@@ -23,15 +24,22 @@ body {
 
 /* Navigation */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     background: #2c3e50;
     box-shadow: 0 2px 0 #3498db;
-    padding: 8px 0;
+    padding: 8px 20px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+    transform: translateY(0);
 }
 
 .navbar div h1 {
@@ -98,9 +106,54 @@ body {
     position: absolute;
     top: 15px;
     right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+.hamburger .close-icon {
+    display: none;
+}
+
+.nav-links.active ~ .hamburger .hamburger-icon {
+    display: none;
+}
+
+.nav-links.active ~ .hamburger .close-icon {
+    display: inline;
+}
+
+/* Navbar scroll states */
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.nav-visible {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.menu-open {
+    transform: translateY(0) !important;
+}
+
+.navbar.scrolling {
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 970px) {
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    .navbar div h1 {
+        font-size: 1.2rem;
+    }
+
     .hamburger {
         display: block;
     }
@@ -108,44 +161,53 @@ body {
     .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
+        position: fixed;
+        top: 70px;
         left: 0;
         width: 100%;
-        background-color: rgba(0,0,0,0.9);
-        text-align: center;
+        background-color: rgba(44, 62, 80, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links.active {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .nav-links li {
         display: block;
-        margin: 10px 0;
-    }
-
-    .navbar {
-        display: block;
-        flex-direction: column;
-        position: sticky;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
     }
 
-    #logo {
-        align-items: center;
-        display: flex;
-        float: left;  
-    }
-
-    .nav-links li {
-        display: list-item;
+    .nav-links li:last-child {
+        border-bottom: none;
     }
 
     .nav-links li a {
-        display: inline-block;
-        padding: 15px;
-        text-align: center;
+        display: block;
+        padding: 18px 20px;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+        background: transparent;
+    }
+
+    .nav-links li a:hover {
+        background-color: #3498db;
+        transform: none;
+        padding-left: 30px;
+        color: white;
+        box-shadow: inset 5px 0 0 #fff;
     }
 
     /* Active link styling for mobile */
@@ -161,13 +223,35 @@ body {
         background-color: #2980b9;
         padding-left: 30px;
     }
+}
 
-    .nav-links li a:hover {
-        background-color: #3498db;
-        transform: none;
-        padding-left: 30px;
-        color: white;
-        box-shadow: inset 5px 0 0 #fff;
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    body {
+        padding-top: 65px;
+    }
+
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .navbar div h1 {
+        font-size: 1rem;
+    }
+
+    #school-logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+    }
+
+    .nav-links {
+        top: 65px;
+    }
+
+    .nav-links li a {
+        padding: 15px 15px;
+        font-size: 1rem;
     }
 }
 
@@ -342,7 +426,7 @@ body {
         }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -984,6 +1068,7 @@ body {
         @media (max-width: 768px) {
             .hero-overlay h2 {
                 font-size: 2.5rem;
+                text-align: center;
             }
             .hero-overlay p {
                 font-size: 1rem;

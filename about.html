@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,10 @@
             </a>
             <h1>Salve Regina School</h1>
          </div>
-         <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html" data-page="index">Home</a></li>
             <li><a href="about.html" data-page="about">About Us</a></li>
@@ -34,7 +37,8 @@
         <img src="images/school_building_6.jpg" alt="Salve Regina School Campus" class="hero-img">
         <div class="hero-overlay">
             <h2>About Salve Regina School</h2>
-            <p>At Salve Regina School, we are dedicated to fostering a nurturing environment where students develop intellectually, socially, and emotionally to become global leaders and compassionate innovators.</p>
+            <p>At Salve Regina School, we foster a nurturing and inclusive environment that inspires learners to reach their full potential.</p>
+            <a href="#about"><p>Read More</p></a>
         </div>
     </section>
 
@@ -84,18 +88,18 @@
     <!-- History Section -->
     <section class="history-section">
         <div class="history-content">
-            <h2 class="animate-in">Our History</h2>
-            <p class="animate-in">Salve Regina School is a private pre-tertiary education institution in the Ashanti
+            <h2 class="animate-in" id="about">About Us</h2>
+            <p class="animate-in" style="text-align: justify">Salve Regina School is a private pre-tertiary education institution in the Ashanti
                 Region of Ghana. Established in 2018 with just five children, we now have our 550 pupils and students 
                 from the pre-school to junior high levels. With our world-class facilities and quality teaching and 
                 learning, Salve Regina is among the most sought-after schools in the Region.
-            </p>
-            <p class="animate-in">
+            </p><br>
+            <p class="animate-in" style="text-align: justify">
                 Situated in the vibrant hills of Abuakwa-Canan, Kumasi, the School is dedicated to equipping young minds 
                 with the tools they need for a bright future. Guided by our motto, "Knowledge and Morality", we strive to
                  provide an education that balances academic excellence with strong moral values.
-            </p>
-            <p class="animate-in">
+            </p><br>
+            <p class="animate-in" style="text-align: justify">
                 At Salve Regina School, we foster a nurturing and inclusive environment that inspires learners to reach 
                 their full potential. Our dedicated educators, state-of-the-art facilities, and emphasis on character development 
                 ensure that every learner is prepared to succeed and make a positive impact in the world.
