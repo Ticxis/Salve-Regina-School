@@ -98,14 +98,13 @@ body {
 
 .hamburger {
     display: none;
-    font-size: 30px;
+    font-size: 24px;
     color: white;
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px;
+    z-index: 1002;
+    padding: 5px;
     transition: transform 0.3s ease;
 }
 
@@ -117,11 +116,11 @@ body {
     display: none;
 }
 
-.nav-links.active ~ .hamburger .hamburger-icon {
+.hamburger.menu-active .hamburger-icon {
     display: none;
 }
 
-.nav-links.active ~ .hamburger .close-icon {
+.hamburger.menu-active .close-icon {
     display: inline;
 }
 
@@ -1067,7 +1066,7 @@ body {
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero-overlay h2 {
-                font-size: 2.5rem;
+                font-size: 2rem;
                 text-align: center;
             }
             .hero-overlay p {
@@ -1088,5 +1087,8 @@ body {
             }
             .history-content ul li:before {
                 display: none;
+            }
+            .footer p:last-of-type, div[style*="background-color: #3498db"] p:last-of-type {
+                font-size: 0.8rem;
             }
         }

@@ -1,4 +1,4 @@
-// Enhanced admissions.js with scroll-based navigation functionality
+// Enhanced admissions.js with triangle pointer functionality
 
 // Navigation scroll hide/show functionality
 let lastScrollTop = 0;
@@ -65,6 +65,7 @@ function toggleMenu() {
     if (!isActive) {
         // Menu is being opened
         navbar.classList.add('menu-open');
+        hamburger.classList.add('menu-active');
         navbar.classList.remove('nav-hidden');
         navbar.classList.add('nav-visible');
         hamburger.setAttribute('aria-expanded', 'true');
@@ -72,6 +73,7 @@ function toggleMenu() {
     } else {
         // Menu is being closed
         navbar.classList.remove('menu-open');
+        hamburger.classList.remove('menu-active');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -82,7 +84,9 @@ function closeMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
     
-    if (navLinks.classList.contains('active')) {
+    // if (navLinks.classList.contains('active')) {
+    if(hamburger){
+        hamburger.classList.remove('menu-active');    
         navLinks.classList.remove('active');
         navbar.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
@@ -127,16 +131,19 @@ function setActiveNavLink() {
     }
 }
 
-// Original admissions step functionality
+// ===== ENHANCED ADMISSION STEP FUNCTIONALITY WITH TRIANGLE POINTER =====
+
+// Enhanced showStep function with triangle positioning
 function showStep(stepNumber, element) {
     // Only run for non-mobile viewports
     if (window.innerWidth >= 768) {
         // Reset all circles and content
         document.querySelectorAll('.step-circle').forEach(circle => {
             circle.classList.remove('active');
-            circle.style.backgroundColor = '#e5e7eb';
-            circle.style.color = '#2563eb';
-            circle.style.borderColor = '#2563eb';
+            // Reset inline styles to let CSS handle the styling
+            circle.style.backgroundColor = '';
+            circle.style.color = '';
+            circle.style.borderColor = '';
         });
         document.querySelectorAll('.process-box .step-content').forEach(content => {
             content.classList.remove('active');
@@ -145,15 +152,92 @@ function showStep(stepNumber, element) {
 
         // Activate selected circle and content
         element.classList.add('active');
-        element.style.backgroundColor = '#2563eb';
-        element.style.color = 'white';
-        element.style.borderColor = '#facc15';
         document.getElementById(`step-${stepNumber}`).classList.add('active');
         document.getElementById('process-box').classList.add('active');
+        
+        // ===== KEY ADDITION: Position triangle pointer =====
+        positionTriangle(stepNumber);
     }
 }
 
-// Initialize everything when DOM is loaded
+// ===== NEW FUNCTION: Triangle positioning logic =====
+function positionTriangle(stepNumber) {
+    const circles = document.querySelectorAll('.step-circle');
+    const triangle = document.getElementById('trianglePointer');
+    const processBox = document.getElementById('process-box');
+    
+    // Safety checks
+    if (!triangle || !processBox || stepNumber < 1 || stepNumber > circles.length) {
+        console.warn('Triangle positioning failed: missing elements or invalid step number');
+        return;
+    }
+
+    // Get the target circle
+    const targetCircle = circles[stepNumber - 1];
+    
+    try {
+        // Calculate positions using getBoundingClientRect for accuracy
+        const circleRect = targetCircle.getBoundingClientRect();
+        const boxRect = processBox.getBoundingClientRect();
+        
+        // Calculate the relative position of circle center to process box
+        const relativeLeft = circleRect.left - boxRect.left + (circleRect.width / 2);
+        
+        // Position triangle (CSS transform handles centering)
+        triangle.style.left = relativeLeft + 'px';
+        
+        // Debug logging (remove in production if desired)
+        console.log(`Triangle positioned for step ${stepNumber} at ${relativeLeft}px`);
+        
+    } catch (error) {
+        console.error('Error positioning triangle:', error);
+    }
+}
+
+// ===== KEYBOARD NAVIGATION SUPPORT =====
+function handleKeyboardNavigation(event) {
+    if (window.innerWidth >= 768) {
+        const circles = document.querySelectorAll('.step-circle');
+        const activeCircle = document.querySelector('.step-circle.active');
+        
+        if (activeCircle && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
+            event.preventDefault();
+            
+            const currentIndex = Array.from(circles).indexOf(activeCircle);
+            let newIndex;
+            
+            if (event.key === 'ArrowLeft') {
+                newIndex = currentIndex > 0 ? currentIndex - 1 : circles.length - 1;
+            } else {
+                newIndex = currentIndex < circles.length - 1 ? currentIndex + 1 : 0;
+            }
+            
+            showStep(newIndex + 1, circles[newIndex]);
+        }
+    }
+}
+
+// ===== VALIDATION AND ERROR HANDLING =====
+function validateTriangleSystem() {
+    const requiredElements = [
+        { selector: '#trianglePointer', name: 'Triangle Pointer' },
+        { selector: '#process-box', name: 'Process Box' },
+        { selector: '.step-circle', name: 'Step Circles' },
+        { selector: '.step-content', name: 'Step Content' }
+    ];
+    
+    const missing = requiredElements.filter(element => !document.querySelector(element.selector));
+    
+    if (missing.length > 0) {
+        console.error('Triangle system validation failed. Missing elements:', missing.map(el => el.name));
+        return false;
+    }
+    
+    console.log('Triangle system validation passed ✓');
+    return true;
+}
+
+// ===== ENHANCED INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize scroll-based navigation functionality
     if (navbar) {
@@ -190,6 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Add keyboard navigation for steps
+    document.addEventListener('keydown', handleKeyboardNavigation);
+
     // Handle window resize
     window.addEventListener('resize', function() {
         const navLinks = document.querySelector('.nav-links');
@@ -214,13 +301,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set active navigation link on page load
     setActiveNavLink();
 
-    // Initialize first step for non-mobile viewports (original functionality)
+    // ===== INITIALIZE TRIANGLE SYSTEM =====
+    // Initialize triangle position for first step
     if (window.innerWidth >= 768) {
         const firstCircle = document.querySelector('.step-circle.active');
         if (firstCircle) {
-            showStep(1, firstCircle);
+            // Small delay to ensure layout is complete
+            setTimeout(() => {
+                showStep(1, firstCircle);
+            }, 100);
         }
     }
+
+    // Validate triangle system
+    setTimeout(validateTriangleSystem, 500);
 
     // Original scroll-based animations using IntersectionObserver
     const animateElements = document.querySelectorAll('.animate-in');
@@ -258,15 +352,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Update step display on resize (original functionality)
+// ===== ENHANCED RESIZE HANDLING =====
+let triangleRepositionTimeout;
+
 window.addEventListener('resize', () => {
+    // Original resize handling
     if (window.innerWidth >= 768) {
         const activeCircle = document.querySelector('.step-circle.active');
         if (activeCircle) {
-            const stepNumber = activeCircle.getAttribute('onclick').match(/\d+/)[0];
-            showStep(stepNumber, activeCircle);
+            const circles = Array.from(document.querySelectorAll('.step-circle'));
+            const stepNumber = circles.indexOf(activeCircle) + 1;
+            
+            // Debounce the repositioning for better performance
+            clearTimeout(triangleRepositionTimeout);
+            triangleRepositionTimeout = setTimeout(() => {
+                positionTriangle(stepNumber);
+            }, 150);
         }
     } else {
+        // Clean up desktop states on mobile
         document.querySelectorAll('.process-box .step-content').forEach(content => {
             content.classList.remove('active');
         });
@@ -275,9 +379,15 @@ window.addEventListener('resize', () => {
             processBox.classList.remove('active');
         }
     }
+
+    // Handle mobile menu on resize
+    const navLinks = document.querySelector('.nav-links');
+    if (window.innerWidth > 970 && navLinks.classList.contains('active')) {
+        closeMobileMenu();
+    }
 });
 
-// Touch event handling for better mobile experience
+// ===== TOUCH EVENT HANDLING =====
 document.addEventListener('DOMContentLoaded', () => {
     // Add touch event listeners for mobile menu
     const navLinks = document.querySelector('.nav-links');
@@ -308,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Error handling for images
+// ===== ERROR HANDLING =====
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -323,7 +433,7 @@ window.addEventListener('error', (e) => {
     console.error('JavaScript error:', e.error);
 });
 
-// Performance optimizations
+// ===== PERFORMANCE OPTIMIZATIONS =====
 document.addEventListener('DOMContentLoaded', () => {
     // Debounce resize events
     let resizeTimeout;
@@ -335,6 +445,68 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth > 970 && navLinks.classList.contains('active')) {
                 closeMobileMenu();
             }
+            
+            // Reposition triangle if needed
+            if (window.innerWidth >= 768) {
+                const activeCircle = document.querySelector('.step-circle.active');
+                if (activeCircle) {
+                    const circles = Array.from(document.querySelectorAll('.step-circle'));
+                    const stepNumber = circles.indexOf(activeCircle) + 1;
+                    positionTriangle(stepNumber);
+                }
+            }
         }, 150);
     });
+});
+
+// ===== OPTIONAL: AUTO-DEMO FUNCTIONALITY =====
+function startAutoDemo() {
+    if (window.innerWidth >= 768) {
+        let currentStep = 1;
+        const maxSteps = 6;
+        
+        const autoAdvance = () => {
+            const circles = document.querySelectorAll('.step-circle');
+            showStep(currentStep, circles[currentStep - 1]);
+            
+            currentStep = currentStep >= maxSteps ? 1 : currentStep + 1;
+        };
+        
+        // Start demo
+        const demoInterval = setInterval(autoAdvance, 3000);
+        
+        // Stop demo after one full cycle
+        setTimeout(() => {
+            clearInterval(demoInterval);
+        }, 18000);
+        
+        return demoInterval;
+    }
+}
+
+// ===== ACCESSIBILITY ENHANCEMENTS =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Add ARIA labels to step circles
+    const circles = document.querySelectorAll('.step-circle');
+    circles.forEach((circle, index) => {
+        const stepTitle = circle.parentElement.querySelector('.step-title').textContent;
+        circle.setAttribute('aria-label', `Step ${index + 1}: ${stepTitle}`);
+        circle.setAttribute('role', 'button');
+        circle.setAttribute('tabindex', '0');
+        
+        // Add keyboard support for circles
+        circle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                showStep(index + 1, circle);
+            }
+        });
+    });
+    
+    // Add ARIA live region for content changes
+    const processBox = document.getElementById('process-box');
+    if (processBox) {
+        processBox.setAttribute('aria-live', 'polite');
+        processBox.setAttribute('aria-label', 'Admission process step details');
+    }
 });

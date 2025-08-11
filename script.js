@@ -1,8 +1,10 @@
-// Navigation scroll hide/show functionality
+// COMPLETE UPDATED SCRIPT.JS WITH NAVBAR FIX
+// Navigation scroll hide/show functionality - FIXED VERSION
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 let scrollTimeout;
 
+// FIXED: Enhanced navbar scroll handler that works properly on homepage
 function handleNavbarScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -19,25 +21,44 @@ function handleNavbarScroll() {
         navbar.classList.remove('scrolling');
     }, 150);
     
+    // FIXED: More aggressive show/hide logic with inline styles
     if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down & past 100px
+        // Scrolling down & past 100px - HIDE navbar
         navbar.classList.add('nav-hidden');
         navbar.classList.remove('nav-visible');
+        // Force hide with inline style to override any conflicts
+        requestAnimationFrame(() => {
+            if (navbar.classList.contains('nav-hidden')) {
+                navbar.style.transform = 'translateY(-100%)';
+            }
+        });
     } else if (scrollTop < lastScrollTop) {
-        // Scrolling up
+        // Scrolling up - SHOW navbar IMMEDIATELY (FIXED)
         navbar.classList.remove('nav-hidden');
         navbar.classList.add('nav-visible');
+        // Force show with inline style to override any conflicts
+        requestAnimationFrame(() => {
+            if (navbar.classList.contains('nav-visible')) {
+                navbar.style.transform = 'translateY(0)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
     }
     
-    // When at the very top, ensure navbar is visible
+    // When at the very top, ensure navbar is visible and reset styles
     if (scrollTop <= 0) {
         navbar.classList.remove('nav-hidden', 'nav-visible');
+        // Reset to default state
+        requestAnimationFrame(() => {
+            navbar.style.transform = '';
+            navbar.style.boxShadow = '';
+        });
     }
     
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
 }
 
-// Throttle function for better performance
+// Enhanced throttle function for better performance
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -63,13 +84,17 @@ function toggleMenu() {
     if (!isActive) {
         // Menu is being opened
         navbar.classList.add('menu-open');
+        hamburger.classList.add('menu-active');
         navbar.classList.remove('nav-hidden');
         navbar.classList.add('nav-visible');
         hamburger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // Force navbar to show when menu opens
+        navbar.style.transform = 'translateY(0)';
     } else {
         // Menu is being closed
         navbar.classList.remove('menu-open');
+        hamburger.classList.remove('menu-active');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -115,7 +140,8 @@ function closeMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
     
-    if (navLinks.classList.contains('active')) {
+    if(hamburger){
+        hamburger.classList.remove('menu-active');    
         navLinks.classList.remove('active');
         navbar.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
@@ -152,6 +178,7 @@ window.addEventListener('resize', function() {
     }
 });
 
+// About section animation observer
 document.addEventListener('DOMContentLoaded', () => {
     const aboutSection = document.querySelector('.about');
     
@@ -171,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Academics section animation observer
 document.addEventListener('DOMContentLoaded', () => {
     const academicsSection = document.querySelector('.academics');
     
@@ -190,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Gallery slider functionality
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.slider');
     const images = document.querySelectorAll('.slider img');
@@ -245,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
 });
 
-// Intersection Observer to trigger animation when section is in view
+// About section intersection observer
 document.addEventListener('DOMContentLoaded', () => {
     const aboutSection = document.querySelector('#about');
     if (!aboutSection) return;
@@ -264,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(aboutSection);
 });
 
+// Academics section intersection observer
 document.addEventListener('DOMContentLoaded', () => {
     const academicsSection = document.querySelector('#academics');
     if (!academicsSection) return;
@@ -282,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(academicsSection);
 });
 
-// Intersection Observer to trigger animations when section is in view
+// Admissions section intersection observer
 document.addEventListener('DOMContentLoaded', () => {
     const admissionsSection = document.querySelector('#admissions');
     if (!admissionsSection) return;
@@ -301,18 +331,22 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(admissionsSection);
 });
 
+// Main DOMContentLoaded initialization - ENHANCED WITH NAVBAR FIX
 document.addEventListener('DOMContentLoaded', () => {
-    // Use throttled scroll handler for better performance
-    window.addEventListener('scroll', throttle(handleNavbarScroll, 10));
-    
-    // Ensure navbar starts in correct position
-    if (navbar) navbar.classList.add('nav-visible');
-    
-    // Add accessibility attributes
-    const hamburger = document.querySelector('.hamburger');
-    if (hamburger) {
-        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
-        hamburger.setAttribute('aria-expanded', 'false');
+    // Initialize scroll-based navigation functionality - ENHANCED
+    if (navbar) {
+        // Use throttled scroll handler for better performance - reduced to 8ms for more responsiveness
+        window.addEventListener('scroll', throttle(handleNavbarScroll, 8), { passive: true });
+        
+        // Ensure navbar starts in correct position
+        navbar.classList.add('nav-visible');
+        
+        // Add accessibility attributes
+        const hamburger = document.querySelector('.hamburger');
+        if (hamburger) {
+            hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     }
     
     // Set active navigation link on page load
@@ -423,7 +457,7 @@ if (typewriterElement && cursorElement) {
     }, 2000); // Wait for "Welcome to" fade-in
 }
 
-// PRESERVED ANIMATED COUNTER - This section is kept exactly as original to prevent conflicts
+// ANIMATED COUNTER - This section is kept exactly as original to prevent conflicts
 document.addEventListener('DOMContentLoaded', () => {
     const counters = document.querySelectorAll('.counter');
     const speed = 200; // Adjust speed of animation (lower is faster)
@@ -468,16 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = new Image();
         img.src = src;
     });
-    
-    // Optimize scroll performance
-    let ticking = false;
-    
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(handleNavbarScroll);
-            ticking = true;
-        }
-    }
     
     // Debounce resize events
     let resizeTimeout;
@@ -553,3 +577,49 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+// ==================== ENHANCED ADMISSIONS SECTION FUNCTIONALITY ====================
+
+// Enhanced Admissions Intersection Observer for animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced admissions animation observer
+    const enhancedObserverOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const enhancedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                enhancedObserver.unobserve(entry.target);
+            }
+        });
+    }, enhancedObserverOptions);
+
+    // Observe all enhanced animation elements
+    const enhancedAnimatedElements = document.querySelectorAll('.fade-in-enhanced, .slide-in-left-enhanced, .slide-in-right-enhanced');
+    enhancedAnimatedElements.forEach(el => enhancedObserver.observe(el));
+
+    // Add staggered animation delays for enhanced admissions
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    const steps = document.querySelectorAll('.step-enhanced');
+    steps.forEach((step, index) => {
+        step.style.transitionDelay = `${index * 0.2}s`;
+    });
+
+    const requirementItems = document.querySelectorAll('.requirement-item');
+    requirementItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Timeline items staggered animation
+    const timelineItems = document.querySelectorAll('.timeline-item .timeline-content');
+    timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`;
+    });
+});

@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     color: #333;
     line-height: 1.6;
     padding-top: 70px;
@@ -31,7 +31,7 @@ header {
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 header p {
@@ -112,16 +112,15 @@ transform: translateY(-3px);
 }
 
 .hamburger {
-display: none;
-font-size: 30px;
-color: white;
-background: none;
-border: none;
-cursor: pointer;
-position: absolute;
-top: 15px;
-right: 20px;
-transition: transform 0.3s ease;
+    display: none;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 5px;
+    transition: transform 0.3s ease;
 }
 
 .hamburger:hover {
@@ -132,12 +131,12 @@ transform: scale(1.1);
 display: none;
 }
 
-.nav-links.active ~ .hamburger .hamburger-icon {
-display: none;
+.hamburger.menu-active .hamburger-icon {
+    display: none;
 }
 
-.nav-links.active ~ .hamburger .close-icon {
-display: inline;
+.hamburger.menu-active .close-icon {
+    display: inline;
 }
 
 /* Navbar scroll states */
@@ -271,7 +270,7 @@ font-size: 1rem;
 }
 
 .container-form {
-margin: 30px;
+margin: 200px;
 }
 .contact-section {
     display: flex;
@@ -296,9 +295,8 @@ margin: 30px;
     font-size: 2.5rem;
      color: #1e3a8a;
     margin-bottom: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1rem;
-    font-weight: bold;
     }
 .form-group {
     margin-bottom: 20px;
@@ -426,6 +424,15 @@ footer {
 
     header p {
         font-size: 1rem;
+    }
+    .container-form{
+        margin: 30px;
+    }
+    .contact-form h2, .contact-info h2{
+        font-size: 2rem;
+    }
+    .footer p:last-of-type, div[style*="background-color: #3498db"] p:last-of-type {
+        font-size: 0.8rem;
     }
 }
 

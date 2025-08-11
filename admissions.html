@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Links -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="admissions.css">
@@ -27,7 +34,7 @@
             <li><a href="about.html" data-page="about">About Us</a></li>
             <li><a href="academics.html" data-page="academics">Academics</a></li>
             <li><a href="admissions.html" data-page="admissions">Admissions</a></li>
-            <li><a href="campus.html" data-page="campus">Campus Life</a></li>
+            <li><a href="campus.html" data-page="campus">Gallery</a></li>
             <li><a href="contact.html" data-page="contact">Contact</a></li>
         </ul>
     </nav>
@@ -60,7 +67,7 @@
                 Our curriculum is tailored to challenge and inspire students, preparing them for success in an ever-changing world. From our dedicated faculty to our state-of-the-art facilities, we provide a holistic education that balances academics, extracurricular activities, and personal growth. Whether you're interested in STEM, the arts, or athletics, our school offers opportunities to explore your passions and develop your talents.
             </p>
             <p>
-                To apply, we invite you to explore our admissions requirements and deadlines, which are outlined in detail on this page. Our admissions team is here to answer any questions and guide you through the process. We can’t wait to welcome you to our school family!
+                To apply, we invite you to explore our admissions requirements and deadlines, which are outlined in detail on this page. Our admissions team is here to answer any questions and guide you through the process. We can't wait to welcome you to our school family!
             </p>
         </div>
         <div>
@@ -74,16 +81,20 @@
         </div>
     </section>
 
-    <!-- Image and Text Section -->
-    <section class="flex-sections">
+    <!-- Image and Text Section - MODIFIED TO TESTIMONIAL STYLE -->
+    <section class="testimonial-section">
         <h2>Why Choose Our School?</h2>
-        <div class="image-wrap">
-            <img src="images/board5.jpg" alt="School Campus">
-        </div>
-        <div class="text-wrap">
-            <p>
-                Our school is more than just a place to learn—it’s a community where students grow, connect, and discover their potential. With a focus on personalized education, we ensure that every student receives the support they need to succeed. Our campus is equipped with modern facilities, and our dedicated staff are passionate about helping students achieve their goals. Join us and become part of a legacy of excellence and opportunity.
-            </p>
+        <div class="testimonial-container">
+            <div class="testimonial-image">
+                <img src="images/board5.jpg" alt="School Campus">
+            </div>
+            <div class="testimonial-content">
+                <div class="quote-accent"></div>
+                <blockquote>
+                    "Our school is more than just a place to learn—it's a community where students grow, connect, and discover their potential. With a focus on personalized education, we ensure that every student receives the support they need to succeed. Our campus is equipped with modern facilities, and our dedicated staff are passionate about helping students achieve their goals. Join us and become part of a legacy of excellence and opportunity."
+                </blockquote>
+                <cite>- Salve Regina School Administration</cite>
+            </div>
         </div>
     </section>
 
@@ -92,107 +103,116 @@
         <h2>Admission Process</h2>
         <div class="step-container">
             <div class="step-item">
-                <div class="step-title">Inquiry</div>
+                <div class="step-title">Schedule Introductory Call</div>
                 <div class="step-circle active" onclick="showStep(1, this)">1</div>
             </div>
             <div class="step-item">
-                <div class="step-title">Application</div>
+                <div class="step-title">Visit Campus</div>
                 <div class="step-circle" onclick="showStep(2, this)">2</div>
             </div>
             <div class="step-item">
-                <div class="step-title">Assessment</div>
+                <div class="step-title">Complete Parent Application</div>
                 <div class="step-circle" onclick="showStep(3, this)">3</div>
             </div>
             <div class="step-item">
-                <div class="step-title">Interview</div>
+                <div class="step-title">Request and Submit Materials</div>
                 <div class="step-circle" onclick="showStep(4, this)">4</div>
             </div>
             <div class="step-item">
-                <div class="step-title">Decision</div>
+                <div class="step-title">Register for Group Visit/Entrance Exam</div>
                 <div class="step-circle" onclick="showStep(5, this)">5</div>
             </div>
             <div class="step-item">
-                <div class="step-title">Enrollment</div>
+                <div class="step-title">Explore Your Financial Options</div>
                 <div class="step-circle" onclick="showStep(6, this)">6</div>
             </div>
         </div>
         <div class="process-box" id="process-box">
+            <!-- Triangle Pointer - KEY ADDITION -->
+            <div class="triangle-pointer" id="trianglePointer"></div>
+            
             <div id="step-1" class="step-content active">
+                <h3>Schedule an Introductory Call</h3>
                 <p>
-                    Begin by contacting our admissions office to express your interest. You can reach out via our online inquiry form, email, or phone. Our team will provide you with detailed information about our programs and the admissions process.
+                    We welcome learning about your student and your family's interest in Salve Regina during an introductory conversation with a member of our Admissions team! This conversation also presents an ideal opportunity to highlight our application process for you. Submit an inquiry form, and our team will be in touch shortly to schedule your call.
                 </p>
             </div>
             <div id="step-2" class="step-content">
+                <h3>Visit Campus</h3>
                 <p>
-                    Complete and submit the online application form, including all required documents such as transcripts, recommendation letters, and a personal statement. Ensure you meet the application deadlines for your desired academic year.
+                    Experience our vibrant community firsthand by scheduling a campus visit. During your visit, you'll tour our facilities, meet with faculty members, observe classes in session, and get a feel for daily life at Salve Regina School. Our student ambassadors will be happy to answer your questions and share their experiences.
                 </p>
             </div>
             <div id="step-3" class="step-content">
+                <h3>Complete Parent Application</h3>
                 <p>
-                    Applicants may be required to take an entrance assessment to evaluate academic readiness. This may include standardized tests or school-specific evaluations, depending on the grade level.
+                    Following your introductory call, a member of the Admissions team will send you credentials to access our online application portal. This is where you can complete the Parent Application with detailed information about your family and student's academic background.
                 </p>
             </div>
             <div id="step-4" class="step-content">
+                <h3>Request and Submit Materials</h3>
                 <p>
-                    Schedule an interview with our admissions team. This is an opportunity for us to learn more about the applicant and for families to ask questions about our school’s programs and values.
+                    Gather and submit all required documentation including academic transcripts, teacher recommendations, and any additional materials specific to your student's grade level. Our admissions team will provide you with a detailed checklist and deadlines for all required materials.
                 </p>
             </div>
             <div id="step-5" class="step-content">
+                <h3>Register for Group Visit/Entrance Exam</h3>
                 <p>
-                    After reviewing all application materials, assessments, and interviews, our admissions committee will make a decision. You will be notified of the outcome via email or phone.
+                    Applicants for grades 4 and 5 are required to attend a half-day Group Visit consisting of an academic assessment, a few fun activities, and lunch. Applicants for grades 6-9 are required to submit scores from the Independent School Entrance Exam (ISEE) or Secondary School Admission Test (SSAT).
                 </p>
             </div>
             <div id="step-6" class="step-content">
+                <h3>Explore Your Financial Options</h3>
                 <p>
-                    Upon acceptance, complete the enrollment process by submitting the enrollment agreement and any required deposits. Our team will guide you through orientation and next steps to prepare for the school year.
+                    Learn about our financial aid opportunities, scholarship programs, and flexible payment plans. Our financial aid team will work with you to understand the investment in your child's education and explore options that make Salve Regina School accessible for your family.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Inquiry</div>
+            <div class="step-card-header">Schedule Introductory Call</div>
             <div class="step-card-content">
                 <p>
-                    Begin by contacting our admissions office to express your interest. You can reach out via our online inquiry form, email, or phone. Our team will provide you with detailed information about our programs and the admissions process.
+                    We welcome learning about your student and your family's interest in Salve Regina during an introductory conversation with a member of our Admissions team! Submit an inquiry form, and our team will be in touch shortly to schedule your call.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Application</div>
+            <div class="step-card-header">Visit Campus</div>
             <div class="step-card-content">
                 <p>
-                    Complete and submit the online application form, including all required documents such as transcripts, recommendation letters, and a personal statement. Ensure you meet the application deadlines for your desired academic year.
+                    Experience our vibrant community firsthand by scheduling a campus visit. Tour our facilities, meet faculty members, observe classes, and get a feel for daily life at Salve Regina School.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Assessment</div>
+            <div class="step-card-header">Complete Parent Application</div>
             <div class="step-card-content">
                 <p>
-                    Applicants may be required to take an entrance assessment to evaluate academic readiness. This may include standardized tests or school-specific evaluations, depending on the grade level.
+                    Following your introductory call, a member of the Admissions team will send you credentials to access our online application portal where you can complete the Parent Application.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Interview</div>
+            <div class="step-card-header">Request and Submit Materials</div>
             <div class="step-card-content">
                 <p>
-                    Schedule an interview with our admissions team. This is an opportunity for us to learn more about the applicant and for families to ask questions about our school’s programs and values.
+                    Gather and submit all required documentation including academic transcripts, teacher recommendations, and any additional materials specific to your student's grade level.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Decision</div>
+            <div class="step-card-header">Register for Group Visit/Entrance Exam</div>
             <div class="step-card-content">
                 <p>
-                    After reviewing all application materials, assessments, and interviews, our admissions committee will make a decision. You will be notified of the outcome via email or phone.
+                    Applicants for grades 4-5 attend a half-day Group Visit. Applicants for grades 6-9 submit ISEE or SSAT scores. Our team will guide you through the appropriate requirements.
                 </p>
             </div>
         </div>
         <div class="step-card">
-            <div class="step-card-header">Enrollment</div>
+            <div class="step-card-header">Explore Your Financial Options</div>
             <div class="step-card-content">
                 <p>
-                    Upon acceptance, complete the enrollment process by submitting the enrollment agreement and any required deposits. Our team will guide you through orientation and next steps to prepare for the school year.
+                    Learn about our financial aid opportunities, scholarship programs, and flexible payment plans. Our financial aid team will work with you to make Salve Regina School accessible for your family.
                 </p>
             </div>
         </div>
@@ -230,7 +250,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="campus.html">Campus Life</a></li>
+                    <li><a href="campus.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -247,7 +267,7 @@
         </div> -->
     </footer>
     <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
-        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+        <p style="color: white; margin: 0;">&copy;2025 Salve Regina School | All rights reserved</p>
     </div>
     <script src="admissions.js"></script>
 </body>

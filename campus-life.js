@@ -65,6 +65,7 @@ function toggleMenu() {
     if (!isActive) {
         // Menu is being opened
         navbar.classList.add('menu-open');
+        hamburger.classList.add('menu-active');
         navbar.classList.remove('nav-hidden');
         navbar.classList.add('nav-visible');
         hamburger.setAttribute('aria-expanded', 'true');
@@ -72,6 +73,7 @@ function toggleMenu() {
     } else {
         // Menu is being closed
         navbar.classList.remove('menu-open');
+        hamburger.classList.remove('menu-active');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = ''; // Restore scrolling
     }
@@ -82,7 +84,9 @@ function closeMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
     
-    if (navLinks.classList.contains('active')) {
+    // if (navLinks.classList.contains('active')) {
+    if(hamburger){
+        hamburger.classList.remove('menu-active');    
         navLinks.classList.remove('active');
         navbar.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
@@ -127,7 +131,7 @@ function setActiveNavLink() {
     }
 }
 
-// Original campus life functionality
+// Original Gallery functionality
 const categoriesBtn = document.getElementById('categoriesBtn');
 const showAllBtn = document.getElementById('showAllBtn');
 const categoriesView = document.getElementById('categoriesView');
@@ -155,12 +159,8 @@ function startSlideshow(item) {
         if (!imgElement) return;
 
         setInterval(() => {
-            imgElement.style.opacity = 0;
-            setTimeout(() => {
-                index = (index + 1) % images.length;
-                imgElement.src = images[index];
-                imgElement.style.opacity = 1;
-            }, 500); // Match CSS transition duration
+            index = (index + 1) % images.length;
+            imgElement.src = images[index];
         }, slideshowInterval);
     } catch (error) {
         console.error('Error in slideshow for', item.getAttribute('data-caption'), ':', error);

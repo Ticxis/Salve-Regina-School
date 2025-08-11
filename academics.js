@@ -63,31 +63,35 @@ function toggleMenu() {
     
     // When mobile menu is open, prevent navbar from hiding
     if (!isActive) {
-        // Menu is being opened
-        navbar.classList.add('menu-open');
-        navbar.classList.remove('nav-hidden');
-        navbar.classList.add('nav-visible');
-        hamburger.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    } else {
-        // Menu is being closed
-        navbar.classList.remove('menu-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = ''; // Restore scrolling
-    }
+      // Menu is being opened
+      navbar.classList.add('menu-open');
+      hamburger.classList.add('menu-active');
+      navbar.classList.remove('nav-hidden');
+      navbar.classList.add('nav-visible');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  } else {
+      // Menu is being closed
+      navbar.classList.remove('menu-open');
+      hamburger.classList.remove('menu-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Restore scrolling
+  }
 }
 
 // Function to close mobile menu when clicking outside
 function closeMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
-    
-    if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        navbar.classList.remove('menu-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-    }
+  const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger');
+  
+  // if (navLinks.classList.contains('active')) {
+  if(hamburger){
+      hamburger.classList.remove('menu-active');    
+      navLinks.classList.remove('active');
+      navbar.classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+  }
 }
 
 // Function to set active navigation link based on current page
