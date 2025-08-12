@@ -73,8 +73,10 @@ function throttle(func, limit) {
 }
 
 // Enhanced toggle menu function with better mobile support
+// Enhanced toggle menu function with better mobile support
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
     const hamburger = document.querySelector('.hamburger');
     const isActive = navLinks.classList.contains('active');
     
@@ -196,6 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutSection) {
         observer.observe(aboutSection);
     }
+    if (aboutSection) {
+        observer.observe(aboutSection);
+    }
 });
 
 // Academics section animation observer
@@ -213,6 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.4 // Trigger when 40% of the section is visible
     });
 
+    if (academicsSection) {
+        observer.observe(academicsSection);
+    }
     if (academicsSection) {
         observer.observe(academicsSection);
     }
@@ -362,7 +370,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set active navigation link on page load
     setActiveNavLink();
     
+    // Add accessibility attributes
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+    
+    // Set active navigation link on page load
+    setActiveNavLink();
+    
     // Scroll-to-top for Home links
+    const homeLinks = document.querySelectorAll('a[href="#home"], a[href="index.html#home"]');
     const homeLinks = document.querySelectorAll('a[href="#home"], a[href="index.html#home"]');
     homeLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -372,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
             if (document.querySelector('.nav-links').classList.contains('active')) {
+                closeMobileMenu();
                 closeMobileMenu();
             }
         });
@@ -384,10 +404,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const navLinksContainer = document.querySelector('.nav-links');
             if (navLinksContainer.classList.contains('active')) {
                 closeMobileMenu();
+                closeMobileMenu();
             }
         });
     });
 
+    // Intersection Observer for animations with improved performance
     // Intersection Observer for animations with improved performance
     const animatedElements = document.querySelectorAll('.typewriter, .step');
     const observer = new IntersectionObserver(
@@ -403,6 +425,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         },
         {
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: '50px' // Start animation 50px before element enters viewport
             threshold: 0.1, // Trigger when 10% of element is visible
             rootMargin: '50px' // Start animation 50px before element enters viewport
         }
@@ -451,8 +475,10 @@ if (typewriterElement && cursorElement) {
         setTimeout(() => {
             cursorElement.style.animation = ''; // Stop blinking
             // Type "SRS"
+            // Type "SRS"
             typeWriter("SRS", 100, () => {
                 setTimeout(() => {
+                    // Delete "SRS"
                     // Delete "SRS"
                     deleteText(100, () => {
                         // Type "Salve Regina School"
