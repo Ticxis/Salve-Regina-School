@@ -1,10 +1,10 @@
-// COMPLETE UPDATED SCRIPT.JS WITH NAVBAR FIX
-// Navigation scroll hide/show functionality - FIXED VERSION
+// FIXED SCRIPT.JS WITH CONSISTENT NAVBAR BEHAVIOR
+// Navigation scroll hide/show functionality - CLEAN VERSION
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 let scrollTimeout;
 
-// FIXED: Enhanced navbar scroll handler that works properly on homepage
+// CLEAN navbar scroll handler (same as working pages)
 function handleNavbarScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -21,38 +21,20 @@ function handleNavbarScroll() {
         navbar.classList.remove('scrolling');
     }, 150);
     
-    // FIXED: More aggressive show/hide logic with inline styles
+    // CLEAN AND WORKING LOGIC (same as other pages)
     if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down & past 100px - HIDE navbar
+        // Scrolling down & past 100px
         navbar.classList.add('nav-hidden');
         navbar.classList.remove('nav-visible');
-        // Force hide with inline style to override any conflicts
-        requestAnimationFrame(() => {
-            if (navbar.classList.contains('nav-hidden')) {
-                navbar.style.transform = 'translateY(-100%)';
-            }
-        });
     } else if (scrollTop < lastScrollTop) {
-        // Scrolling up - SHOW navbar IMMEDIATELY (FIXED)
+        // Scrolling up
         navbar.classList.remove('nav-hidden');
         navbar.classList.add('nav-visible');
-        // Force show with inline style to override any conflicts
-        requestAnimationFrame(() => {
-            if (navbar.classList.contains('nav-visible')) {
-                navbar.style.transform = 'translateY(0)';
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
     }
     
-    // When at the very top, ensure navbar is visible and reset styles
+    // When at the very top, ensure navbar is visible
     if (scrollTop <= 0) {
         navbar.classList.remove('nav-hidden', 'nav-visible');
-        // Reset to default state
-        requestAnimationFrame(() => {
-            navbar.style.transform = '';
-            navbar.style.boxShadow = '';
-        });
     }
     
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
@@ -89,8 +71,6 @@ function toggleMenu() {
         navbar.classList.add('nav-visible');
         hamburger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        // Force navbar to show when menu opens
-        navbar.style.transform = 'translateY(0)';
     } else {
         // Menu is being closed
         navbar.classList.remove('menu-open');
@@ -331,12 +311,12 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(admissionsSection);
 });
 
-// Main DOMContentLoaded initialization - ENHANCED WITH NAVBAR FIX
+// Main DOMContentLoaded initialization - CLEAN VERSION
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize scroll-based navigation functionality - ENHANCED
+    // Initialize scroll-based navigation functionality - CLEAN VERSION
     if (navbar) {
-        // Use throttled scroll handler for better performance - reduced to 8ms for more responsiveness
-        window.addEventListener('scroll', throttle(handleNavbarScroll, 8), { passive: true });
+        // Use throttled scroll handler for better performance
+        window.addEventListener('scroll', throttle(handleNavbarScroll, 10), { passive: true });
         
         // Ensure navbar starts in correct position
         navbar.classList.add('nav-visible');
