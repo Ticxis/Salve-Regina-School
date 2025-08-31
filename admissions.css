@@ -631,6 +631,9 @@ p {
     .container {
         padding: 0 12px;
     }
+    .programs-section {
+        padding: 1rem 0.1rem; /* Reduces from 4rem to 2rem (32px) */
+    }
     .flex-section {
         flex-direction: column;
         gap: 24px;
