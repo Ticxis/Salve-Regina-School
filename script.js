@@ -332,6 +332,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set active navigation link on page load
     setActiveNavLink();
     
+    // Add accessibility attributes
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+    
+    // Set active navigation link on page load
+    setActiveNavLink();
+    
     // Scroll-to-top for Home links
     const homeLinks = document.querySelectorAll('a[href="#home"], a[href="index.html#home"]');
     homeLinks.forEach(link => {
