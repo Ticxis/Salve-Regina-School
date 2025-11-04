@@ -1,0 +1,62 @@
+{
+    "boardMembers": [
+      {
+        "id": 1,
+        "name": "Dr. Christian Addai-Poku",
+        "title": "Board Member",
+        "image": "images/doc.jpg",
+        "excerpt": "With over 31 years of experience in education, Dr. Addai-Poku leads with a vision for holistic student development.",
+        "story": "Dr. Christian Addai-Poku is presently the Registrar of the National Teaching Council, an agency responsible for regulating and professionalising teaching in Ghana. With over 31 years of experience in the education sector, Christian is an educationist who has served in various capacities from classroom teaching to headship of schools and is presently head of an education agency within the Ministry of Education. He has also served in various union capacities, including being the Vice President and President of the National Association of Graduate Teachers (NAGRAT)and the President of Education International, Africa Region. He holds a Ph.D. in Educational Leadership, an MPhil in Educational Administration, a bachelor’s degree in Education, and a Diploma in Pension Fund Management. He is a Chartered Pension Analyst Manager and a Fellow of the American Association of Financial Management (AAFM). Christian was once the Secretary General and presently the Deputy President of the Africa Federation of Teacher Regulatory Authority (AFTRA). He has served on many boards and councils, including the Ghana Education Service (GES)Council, the University of Energy and Natural Resources (UENR) Council, the University of Education, Winneba (EUW) Council, the National Council for Curriculum and Assessment (NaCCA) Board, and the National School Inspectorate Authority (NaSIA) Board. He is also a Trustee of the Ghana Education Service Occupational Pension Scheme and a member of the NAGRAT Fund Board. Dr. Addai-Poku is an expert in teacher leadership and professionalism."
+      },
+      {
+        "id": 2,
+        "name": "Rev. Prof. Alexander Kyei Edwards",
+        "title": "Board Chairman",
+        "image": "images/board1.jpg",
+        "excerpt": "Prof. Edwards oversees our curriculum, ensuring academic rigor and innovation.",
+        "story": "Rev. Prof. Alexander Kyei Edwards is a distinguished academic and spiritual leader who brings a unique perspective to educational governance. With a professorial background in theology and education, he has spent over 15 years developing curricula that balance intellectual growth with moral development. Prof. Edwards holds multiple degrees including a Master's in Divinity and a Ph.D. in Educational Philosophy. His innovative approach to curriculum design emphasizes critical thinking, ethical reasoning, and social responsibility. He has been instrumental in integrating values-based education into the academic framework, ensuring that students not only excel academically but also develop strong character traits that will serve them throughout their lives."
+      },
+      {
+        "id": 3,
+        "name": "Mrs. Lucy Addai-Poku",
+        "title": "Board Member",
+        "image": "images/board8.jpg",
+        "excerpt": "Mrs. Lucy is an astute entrepreneur with a great interest in education and agriculture. ",
+        "story": "Mrs. Lucy Addai-Poku is Currently the Associate Executive Director of Salve School in Abuakwa, Kumasi. She is an astute entrepreneur with a great interest in education and agriculture. she is an educationist with over twenty years of experience as a classroom teacher, Assistant Headmistress of a public senior high school, and as co-owner of a renowned private school. She has been a council member of the St. Louis College of Education since 2022. In agribusiness, she, as a renowned farmer, was adjudged the National Best Young Female Cocoa Farmer in 2015. This enviable award led her to join the Ghana delegation to the Cocoa Road Show in London that year to raise funds for the purchase of cocoa in Ghana. It also created a platform for her to address a side meeting of the United Nations General Assembly in New York in 2018 on female participation in cocoa farming. Mrs. Addai-Poku holds a master's degree in Educational Leadership and a first degree in Home Economics. She is a philanthropist and a staunch catholic."
+      },
+      {
+        "id": 4,
+        "name": "Prof. Isaac Boateng",
+        "title": "Board Member",
+        "image": "images/board9.jpg",
+        "excerpt": "Prof. Boateng is a keen individual with interdisciplinary knowledge.",
+        "story": "Prof. Isaac Boateng is a keen individual with interdisciplinary knowledge. He has over 25 years’ worth of professional experience in research, teaching, and learning in higher education. He also has corporate experience as he has served on several boards of government and non-governmental organizations. He has been a fellow of the UK Higher Education Academy since 2009. His research leadership and higher educational management expertise span across Ghana, Denmark, and the UK. Isaac’s research and consultancy interests are in the areas of General Education, coastal engineering, climate change, coastal and river adaptation to climate change, coastal and marine resource management, shoreline management planning, environmental management, and applied coastal and fluvial geomorphology. He has expertise in Geographic Information Systems (GIS. He was a Senior Lecturer at the University of Portsmouth in the UK for over 11 years. In his quest to contribute to the development of Ghana his motherland and Africa as a whole, Isaac returned to Ghana in 2018 to lecture at the University of Education Winneba (UEW). He was appointed the Dean of the Faculty of Business Education at the erstwhile UEW campus in Kumasi, now the Akenten Appiah-Menka University of Skill Training and Entrepreneurial Development (AAMUSTED) between 2019 and 2022.  Isaac was appointed as the first Director of the Institute of Teacher Professional Development and LifeLong Learning at AAMUSTED between 2022 and 2023. In November 2023, he was elected and later affirmed by the Council as the first substantive Pro Vice-Chancellor of AAMUSTED on the 12th of December 2023. He is an astute international scholar with high-level leadership experience on a global scale. He has several academic publications with over 1075 citations and still counting."
+      },
+      {
+        "id": 5,
+        "name": "Miss Comfort Henrietta Suglo",
+        "title": "Board Member",
+        "image": "images/board3.jpg",
+        "excerpt": "Miss Suglo brings wealth of experience in governance, policy implementation and community engagement.",
+        "story": "Miss Comfort Henrietta Suglo is a retired District Director of Health Services and a seasoned Public Health Specialist with over two decades of distinguished service in health administration, human resource management, and community health development. Her career has been marked by strong leadership in strategic planning, capacity building, and the coordination of impactful health interventions across both rural and urban settings. She has successfully led numerous health outreach initiatives during national health emergencies, ensuring that underserved populations received critical care and life-saving public health education. In addition to her clinical and administrative accomplishments, Miss Suglo played a pivotal role in developing a financial manual for a Catholic Friendly Society and has expertly managed large-scale events, some hosting over 500 participants demonstrating her exceptional organizational abilities and collaborative approach. Rooted in faith, compassion, and integrity, Miss Suglo remains actively engaged in community service. She volunteers in youth development programs, focusing on supporting vulnerable adolescents. As a school board member, Miss Suglo brings a wealth of experience in governance, policy implementation, and community engagement. Her extensive background positions her to contribute meaningfully to advancing academic excellence, enhancing student welfare, and upholding the school’s mission and values. She is deeply committed to nurturing an educational environment where every student can grow intellectually, socially, and morally"
+      },
+      
+      {
+        "id": 6,
+        "name": "Mr. James Obeng",
+        "title": "Board Member",
+        "image": "images/board4.jpg",
+        "excerpt": "Mr. Obeng supports student well-being, fostering a nurturing environment.",
+        "story": "Mr. James Obeng is an experienced educator and educational leader with a deep passion for transforming teaching and learning. He is currently the Acting Ashanti Regional Director of the National Teaching Council, where he provides strategic leadership in teacher professional development and regulatory functions. He holds an M.Phil. in English Language from the University of Cape Coast and has held key leadership roles in senior high schools, including Assistant Headmaster and Secretary to Boards of Governors. He has also served as a part-time English Language lecturer for the Distance Learning Programme at the University of Education, Winneba. Mr. Obeng has also served as a Council Member of Wesley College of Education.  He has been actively involved in the Deeper Life Bible Church, serving as Regional Campus Coordinator since 2008, supporting the spiritual and academic development of students and youth. He brings to the board a collaborative leadership style, problem-solving ability, and a commitment to inclusive and impactful education."
+      },
+      
+      {
+        "id": 7,
+        "name": "Hon. Seth Oduro Boadu",
+        "title": "Board Member",
+        "image": "images/board6.jpg",
+        "excerpt": "Hon. Seth Oduro Boadu's leadership is driven by a passion for inclusive development, youth empowerment and institutional growth.",
+        "story": "Hon. Seth Oduro Boadu is a seasoned administrator and education advocate with extensive experience in public service and community leadership. He previously served as Municipal Chief Executive Officer for West Akim Municipal Assembly in the Eastern Region of Ghana, where he led numerous developmental initiatives in education infrastructure and social welfare. Currently he is a board member of Salve Regina Int. School in Kumasi.Hon Seth Oduro Boadu brings a wealth of governance expertise, policy insight and a strong commitment to advance quality education. He holds a Master's degree in Public sector management from GIMPA and a Bachelor degree in Accounting and Mathematics from University of Education Winneba(Kumasi campus), which informs his strategic contributions to the school's vision and operations. His leadership is driven by a passion for inclusive development, youth empowerment and institutional growth."
+      }
+    ]
+  }

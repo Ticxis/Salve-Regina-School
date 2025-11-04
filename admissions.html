@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="admissions.css">
+    <title>Admissions - Salve Regina School</title>
+        
+</head>
+<body>
+   <!-- Header -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+            </a>
+            <h1>Salve Regina School</h1>
+         </div>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html" data-page="index">Home</a></li>
+            <li><a href="about.html" data-page="about">About Us</a></li>
+            <li><a href="academics.html" data-page="academics">Academics</a></li>
+            <li><a href="admissions.html" data-page="admissions">Admissions</a></li>
+            <li><a href="campus.html" data-page="campus">Gallery</a></li>
+            <li><a href="contact.html" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="images/image28.jpg" alt="Salve Regina School Academics" class="hero-img">
+        <div class="hero-overlay">
+            <h2>Admission at Salve Regina School</h2>
+            <p>Begin your journey with us at Salve Regina School, where we welcome students and families to discover exceptional educational opportunities. Our streamlined admissions process is designed to help you find your place in our vibrant learning community.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <h2 class="animate-in">Admission</h2>
+        <p class="animate-in">Join our vibrant school community.</p>
+    </section>
+
+    <!-- Main Content Section -->
+<main class="container">
+    <!-- Text and Video Section -->
+    <section class="flex-section">
+        <div>
+            <h2>Welcome to Our Admissions Process</h2>
+            <p>
+                At our school, we are committed to fostering a nurturing and inclusive environment where every student can thrive. Our admissions process is designed to be transparent and welcoming, ensuring that prospective students and their families feel supported every step of the way. We value diversity, creativity, and academic curiosity, and we look forward to getting to know you and your aspirations.
+            </p>
+            <p>
+                Our curriculum is tailored to challenge and inspire students, preparing them for success in an ever-changing world. From our dedicated faculty to our state-of-the-art facilities, we provide a holistic education that balances academics, extracurricular activities, and personal growth. Whether you're interested in STEM, the arts, or athletics, our school offers opportunities to explore your passions and develop your talents.
+            </p>
+            <p>
+                To apply, we invite you to explore our admissions requirements and deadlines, which are outlined in detail on this page. Our admissions team is here to answer any questions and guide you through the process. We can't wait to welcome you to our school family!
+            </p>
+        </div>
+        <div>
+            <div class="video-container">
+                <!-- Replace with your actual video file path -->
+                <video controls autoplay loop muted playsinline loading = "lazy" poster="images/school_building_3.jpg">
+                    <source src="images/salve_regina_documentary.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image and Text Section - MODIFIED TO TESTIMONIAL STYLE -->
+    <section class="testimonial-section">
+        <h2>Why Choose Our School?</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-image">
+                <img src="images/board5.jpg" alt="School Campus">
+            </div>
+            <div class="testimonial-content">
+                <div class="quote-accent"></div>
+                <blockquote>
+                    "Our school is more than just a place to learn—it's a community where students grow, connect, and discover their potential. With a focus on personalized education, we ensure that every student receives the support they need to succeed. Our campus is equipped with modern facilities, and our dedicated staff are passionate about helping students achieve their goals. Join us and become part of a legacy of excellence and opportunity."
+                </blockquote>
+                <cite>- Salve Regina School Administration</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process Section -->
+    <section class="admission-process">
+        <h2>Admission Process</h2>
+        <div class="step-container">
+            <div class="step-item">
+                <div class="step-title">Schedule Introductory Call</div>
+                <div class="step-circle active" onclick="showStep(1, this)">1</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Visit Campus</div>
+                <div class="step-circle" onclick="showStep(2, this)">2</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Complete Parent Application</div>
+                <div class="step-circle" onclick="showStep(3, this)">3</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Request and Submit Materials</div>
+                <div class="step-circle" onclick="showStep(4, this)">4</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Register for Group Visit/Entrance Exam</div>
+                <div class="step-circle" onclick="showStep(5, this)">5</div>
+            </div>
+            <div class="step-item">
+                <div class="step-title">Explore Your Financial Options</div>
+                <div class="step-circle" onclick="showStep(6, this)">6</div>
+            </div>
+        </div>
+        <div class="process-box" id="process-box">
+            <!-- Triangle Pointer - KEY ADDITION -->
+            <div class="triangle-pointer" id="trianglePointer"></div>
+            
+            <div id="step-1" class="step-content active">
+                <h3>Schedule an Introductory Call</h3>
+                <p>
+                    We welcome learning about your student and your family's interest in Salve Regina during an introductory conversation with a member of our Admissions team! This conversation also presents an ideal opportunity to highlight our application process for you. Submit an inquiry form, and our team will be in touch shortly to schedule your call.
+                </p>
+            </div>
+            <div id="step-2" class="step-content">
+                <h3>Visit Campus</h3>
+                <p>
+                    Experience our vibrant community firsthand by scheduling a campus visit. During your visit, you'll tour our facilities, meet with faculty members, observe classes in session, and get a feel for daily life at Salve Regina School. Our student ambassadors will be happy to answer your questions and share their experiences.
+                </p>
+            </div>
+            <div id="step-3" class="step-content">
+                <h3>Complete Parent Application</h3>
+                <p>
+                    Following your introductory call, a member of the Admissions team will send you credentials to access our online application portal. This is where you can complete the Parent Application with detailed information about your family and student's academic background.
+                </p>
+            </div>
+            <div id="step-4" class="step-content">
+                <h3>Request and Submit Materials</h3>
+                <p>
+                    Gather and submit all required documentation including academic transcripts, teacher recommendations, and any additional materials specific to your student's grade level. Our admissions team will provide you with a detailed checklist and deadlines for all required materials.
+                </p>
+            </div>
+            <div id="step-5" class="step-content">
+                <h3>Register for Group Visit/Entrance Exam</h3>
+                <p>
+                    Applicants for grades 4 and 5 are required to attend a half-day Group Visit consisting of an academic assessment, a few fun activities, and lunch. Applicants for grades 6-9 are required to submit scores from the Independent School Entrance Exam (ISEE) or Secondary School Admission Test (SSAT).
+                </p>
+            </div>
+            <div id="step-6" class="step-content">
+                <h3>Explore Your Financial Options</h3>
+                <p>
+                    Learn about our financial aid opportunities, scholarship programs, and flexible payment plans. Our financial aid team will work with you to understand the investment in your child's education and explore options that make Salve Regina School accessible for your family.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Schedule Introductory Call</div>
+            <div class="step-card-content">
+                <p>
+                    We welcome learning about your student and your family's interest in Salve Regina during an introductory conversation with a member of our Admissions team! Submit an inquiry form, and our team will be in touch shortly to schedule your call.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Visit Campus</div>
+            <div class="step-card-content">
+                <p>
+                    Experience our vibrant community firsthand by scheduling a campus visit. Tour our facilities, meet faculty members, observe classes, and get a feel for daily life at Salve Regina School.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Complete Parent Application</div>
+            <div class="step-card-content">
+                <p>
+                    Following your introductory call, a member of the Admissions team will send you credentials to access our online application portal where you can complete the Parent Application.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Request and Submit Materials</div>
+            <div class="step-card-content">
+                <p>
+                    Gather and submit all required documentation including academic transcripts, teacher recommendations, and any additional materials specific to your student's grade level.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Register for Group Visit/Entrance Exam</div>
+            <div class="step-card-content">
+                <p>
+                    Applicants for grades 4-5 attend a half-day Group Visit. Applicants for grades 6-9 submit ISEE or SSAT scores. Our team will guide you through the appropriate requirements.
+                </p>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-card-header">Explore Your Financial Options</div>
+            <div class="step-card-content">
+                <p>
+                    Learn about our financial aid opportunities, scholarship programs, and flexible payment plans. Our financial aid team will work with you to make Salve Regina School accessible for your family.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="footer_div">
+            <p>&copy;2025 Salve Regina School. All rights reserved</p>
+        </div> -->
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white; margin: 0;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+    <script src="admissions.js"></script>
+</body>
+</html>

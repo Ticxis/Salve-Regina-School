@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Links -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+                </a>
+                <h1>Salve Regina School</h1>
+             </div>
+             <button class="hamburger" onclick="toggleMenu()">
+                <span class="hamburger-icon">☰</span>
+                <span class="close-icon">✕</span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" data-page="index">Home</a></li>
+                <li><a href="about.html" data-page="about">About Us</a></li>
+                <li><a href="academics.html" data-page="academics">Academics</a></li>
+                <li><a href="admissions.html" data-page="admissions">Admissions</a></li>
+                <li><a href="campus.html" data-page="campus">Gallery</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
+
+    <header>
+        <h1>Contact Us</h1>
+        <p>We're here to help! Reach out with any questions or inquiries.</p>
+    </header>
+
+    <div class="container-form">
+        <section class="contact-section">
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder=" " required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="contact-button">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><i class="fas fa-map-marker-alt"></i>Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-phone"></i><a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-envelope"></i><a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 4:00 PM</p>
+                
+                <div class="social-links">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" aria-label="Facebook", target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" aria-label="Youtube", target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="map-placeholder">
+        <!-- Interactive Map Placeholder (Embed Google Maps API here) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6780740833774!2d-1.7179414259161667!3d6.6867402933085875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb993316cc7415%3A0x838927bafda19e4c!2sSALVE%20REGINA%20SCHOOL%20(SRS)!5e0!3m2!1sen!2sgh!4v1751667153449!5m2!1sen!2sgh" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit" class="contact-button">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="footer_div">
+            <p>&copy;2025 Salve Regina School. All rights reserved</p>
+        </div> -->
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

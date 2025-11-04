@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Links -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <title>School Reviews - Submit Your Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+        .form-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+        .form-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+        .input-field:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            transform: translateY(-1px);
+        }
+        .input-field.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        .success-message {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            animation: slideIn 0.5s ease-out;
+        }
+        .error-message {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            animation: slideIn 0.5s ease-out;
+        }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .char-counter {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        .char-counter.warning {
+            color: #f59e0b;
+        }
+        .char-counter.error {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body class="form-container flex items-center justify-center p-4">
+    <div class="container max-w-2xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Share Your Experience</h1>
+            <p class="text-xl text-white opacity-90">Help other parents by sharing your thoughts about Salve Regina School</p>
+        </div>
+
+        <!-- Review Form -->
+        <div class="form-card p-8 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">School Review Form</h2>
+            
+            <form id="reviewForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            class="input-field w-full px-4 py-3 rounded-lg focus:outline-none"
+                            placeholder="Enter your full name"
+                            required
+                            minlength="2"
+                            maxlength="50">
+                        <div class="error-text text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="input-field w-full px-4 py-3 rounded-lg focus:outline-none"
+                            placeholder="Enter your email address"
+                            required>
+                        <div class="error-text text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="relationship" class="block text-sm font-semibold text-gray-700 mb-2">Relationship to School *</label>
+                    <input 
+                        type="text" 
+                        id="relationship" 
+                        name="relationship" 
+                        class="input-field w-full px-4 py-3 rounded-lg focus:outline-none"
+                        placeholder="e.g., Parent of 5th Grader, Guardian, Alumni"
+                        required
+                        maxlength="100">
+                    <div class="error-text text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                
+                <div>
+                    <label for="review" class="block text-sm font-semibold text-gray-700 mb-2">Your Review / Comments *</label>
+                    <textarea 
+                        id="review" 
+                        name="review" 
+                        rows="5" 
+                        class="input-field w-full px-4 py-3 rounded-lg resize-none focus:outline-none"
+                        placeholder="Share your experience with Salve Regina School..."
+                        required
+                        minlength="10"
+                        maxlength="500"></textarea>
+                    <div class="flex justify-between items-center mt-1">
+                        <div class="error-text text-red-500 text-sm hidden"></div>
+                        <div class="char-counter">
+                            <span id="charCount">0</span>/500 characters
+                        </div>
+                    </div>
+                </div>
+                
+                <button 
+                    type="submit" 
+                    id="submitBtn"
+                    class="btn-primary w-full py-4 px-6 rounded-lg text-white font-semibold text-lg">
+                    <span id="submitText">Submit Review</span>
+                </button>
+            </form>
+            
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message mt-6 p-4 rounded-lg text-center font-semibold hidden">
+                <div class="flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                        <div class="font-bold">Thank you! Your review has been submitted successfully.</div>
+                        <div class="text-sm mt-1 opacity-90">We've sent your review to our administrators for approval. It will appear on our website once approved.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message mt-6 p-4 rounded-lg text-center font-semibold hidden">
+                <div class="flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                    <div id="errorText">There was an error submitting your review. Please try again.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-8">
+            <a href="index.html" class="inline-flex items-center text-white hover:text-gray-200 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to School Website
+            </a>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Review Management System -->
+    <script src="reviews.js"></script>
+    
+    <script>
+        // Initialize EmailJS with your public key (ALREADY CONFIGURED)
+        emailjs.init('xjJNtr0LMH0Rj90ea');
+
+        // Get the current website base URL
+        function getBaseURL() {
+            return window.location.protocol + '//' + window.location.host + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        }
+
+        // Generate secure approval/rejection links
+        function generateApprovalLinks(reviewId) {
+            const baseURL = getBaseURL();
+            
+            // Simple security token (you can make this more sophisticated)
+            const approveToken = btoa(reviewId + 'approve').substring(0, 8);
+            const rejectToken = btoa(reviewId + 'reject').substring(0, 8);
+            
+            const approvalLink = `${baseURL}admin-approve.html?action=approve&id=${reviewId}&token=${approveToken}`;
+            const rejectionLink = `${baseURL}admin-approve.html?action=reject&id=${reviewId}&token=${rejectToken}`;
+            
+            console.log('Generated approval links:', { approvalLink, rejectionLink });
+            
+            return {
+                approvalLink,
+                rejectionLink
+            };
+        }
+
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('reviewForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const reviewTextarea = document.getElementById('review');
+            const charCount = document.getElementById('charCount');
+
+            // Character counter
+            reviewTextarea.addEventListener('input', function() {
+                const length = this.value.length;
+                charCount.textContent = length;
+                
+                const counter = document.querySelector('.char-counter');
+                counter.classList.remove('warning', 'error');
+                
+                if (length > 400) {
+                    counter.classList.add('error');
+                } else if (length > 350) {
+                    counter.classList.add('warning');
+                }
+            });
+
+            // Real-time validation
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearFieldError);
+            });
+
+            function validateField(e) {
+                const field = e.target;
+                const errorDiv = field.parentNode.querySelector('.error-text');
+                let isValid = true;
+                let errorMessage = '';
+
+                // Clear previous error state
+                field.classList.remove('error');
+                if (errorDiv) errorDiv.classList.add('hidden');
+
+                // Validation rules
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    errorMessage = 'This field is required';
+                    isValid = false;
+                } else if (field.type === 'email' && field.value && !isValidEmail(field.value)) {
+                    errorMessage = 'Please enter a valid email address';
+                    isValid = false;
+                } else if (field.hasAttribute('minlength') && field.value.length < field.getAttribute('minlength')) {
+                    errorMessage = `Minimum ${field.getAttribute('minlength')} characters required`;
+                    isValid = false;
+                } else if (field.hasAttribute('maxlength') && field.value.length > field.getAttribute('maxlength')) {
+                    errorMessage = `Maximum ${field.getAttribute('maxlength')} characters allowed`;
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    field.classList.add('error');
+                    if (errorDiv) {
+                        errorDiv.textContent = errorMessage;
+                        errorDiv.classList.remove('hidden');
+                    }
+                }
+
+                return isValid;
+            }
+
+            function clearFieldError(e) {
+                const field = e.target;
+                const errorDiv = field.parentNode.querySelector('.error-text');
+                field.classList.remove('error');
+                if (errorDiv) errorDiv.classList.add('hidden');
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function setLoadingState(loading) {
+                submitBtn.disabled = loading;
+                if (loading) {
+                    submitText.innerHTML = '<div class="loading-spinner"></div>Sending...';
+                } else {
+                    submitText.textContent = 'Submit Review';
+                }
+            }
+
+            function showMessage(type, message) {
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                if (type === 'success') {
+                    successMessage.classList.remove('hidden');
+                } else {
+                    errorText.textContent = message;
+                    errorMessage.classList.remove('hidden');
+                }
+
+                // Auto-hide after 8 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    errorMessage.classList.add('hidden');
+                }, 8000);
+            }
+
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Validate all fields
+                let isFormValid = true;
+                inputs.forEach(input => {
+                    if (!validateField({ target: input })) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid) {
+                    showMessage('error', 'Please fix the errors above and try again.');
+                    return;
+                }
+
+                setLoadingState(true);
+
+                try {
+                    // Create review data
+                    const formData = new FormData(form);
+                    const reviewData = {
+                        fullName: formData.get('fullName').trim(),
+                        email: formData.get('email').trim(),
+                        relationship: formData.get('relationship').trim(),
+                        review: formData.get('review').trim()
+                    };
+
+                    // Generate unique review ID
+                    const reviewId = 'review_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+                    // Generate approval/rejection links
+                    const links = generateApprovalLinks(reviewId);
+
+                    // Store as pending review
+                    if (window.ReviewManager) {
+                        window.ReviewManager.storePendingReview({
+                            ...reviewData,
+                            id: reviewId,
+                            timestamp: new Date().toISOString(),
+                            status: 'pending'
+                        });
+                        console.log('Review stored as pending:', reviewId);
+                    } else {
+                        console.warn('ReviewManager not available, review not stored locally');
+                    }
+
+                    // Send email via EmailJS with clickable links (USING YOUR EXISTING CREDENTIALS)
+                    const emailData = {
+                        from_name: reviewData.fullName,
+                        from_email: reviewData.email,
+                        relationship: reviewData.relationship,
+                        message: reviewData.review,
+                        to_email: 'alexander.ofori@gmail.com',
+                        review_id: reviewId,
+                        submission_date: new Date().toLocaleDateString(),
+                        approval_link: links.approvalLink,
+                        rejection_link: links.rejectionLink
+                    };
+
+                    console.log('Sending email with data:', emailData);
+
+                    const response = await emailjs.send('service_o51dudc', 'template_gaawz9y', emailData);
+
+                    console.log('Email sent successfully:', response);
+                    showMessage('success');
+                    form.reset();
+                    charCount.textContent = '0';
+
+                } catch (error) {
+                    console.error('Error sending email:', error);
+                    
+                    // Provide more specific error messages
+                    let errorMsg = 'Failed to send review. ';
+                    if (error.text) {
+                        if (error.text.includes('template')) {
+                            errorMsg += 'Email template issue - please contact support.';
+                        } else if (error.text.includes('service')) {
+                            errorMsg += 'Email service issue - please contact support.';
+                        } else if (error.text.includes('user')) {
+                            errorMsg += 'Email authentication issue - please contact support.';
+                        } else {
+                            errorMsg += 'Email service error: ' + error.text;
+                        }
+                    } else {
+                        errorMsg += 'Please check your internet connection and try again.';
+                    }
+                    
+                    showMessage('error', errorMsg);
+                } finally {
+                    setLoadingState(false);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

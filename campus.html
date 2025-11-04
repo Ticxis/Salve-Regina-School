@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Links -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <title>Gallery - Our School</title>
+    <link rel="stylesheet" href="campus-life.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+        <!-- Header -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+            </a>
+            <h1>Salve Regina School</h1>
+         </div>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html" data-page="index">Home</a></li>
+            <li><a href="about.html" data-page="about">About Us</a></li>
+            <li><a href="academics.html" data-page="academics">Academics</a></li>
+            <li><a href="admissions.html" data-page="admissions">Admissions</a></li>
+            <li><a href="campus.html" data-page="campus">Gallery</a></li>
+            <li><a href="contact.html" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Gallery</h1>
+        <p>Discover the vibrant community and activities at our school!</p>
+    </header>
+
+    <div class="controls">
+        <button id="categoriesBtn" class="active">Categories</button>
+        <button id="showAllBtn">Show All</button>
+    </div>
+
+    <div id="categoriesView">
+        <section class="gallery-section">
+            <h2>Student Activities</h2><br>
+            <div class="gallery">
+                <div class="gallery-item" data-images='["images/image15.jpg", "images/image18.jpg", "images/image21.jpg", "images/image23.jpg", "images/image26.jpg"]' data-caption="Annual Awards and Prize Giving Day">
+                    <img class="slideshow-img" src="images/image15.jpg" alt="Sports Day">
+                    <div class="caption">Annual Awards and Prize Giving Day</div>
+                </div>
+                <div class="gallery-item" data-images='["images/image34.jpg", "images/image35.jpg"]' data-caption="Science Fair Innovations">
+                    <img class="slideshow-img" src="images/image34.jpg" alt="Science Fair">
+                    <div class="caption">Science Fair Innovations</div>
+                </div>
+                <div class="gallery-item" data-images='["images/image29.jpg", "images/image30.jpg", "images/image31.jpg"]' data-caption="Student Art Exhibition">
+                    <img class="slideshow-img" src="images/image29.jpg" alt="Art Exhibition">
+                    <div class="caption">Student Art Exhibition</div>
+                </div>
+                <!-- <div class="gallery-item" data-images='["images/drama-club1.jpg", "images/drama-club2.jpg"]' data-caption="Drama Club Performance">
+                    <img class="slideshow-img" src="images/drama-club1.jpg" alt="Drama Club">
+                    <div class="caption">Drama Club Performance</div>
+                </div> -->
+                <div class="gallery-item" data-images='["images/image17.jpg", "images/image19.jpg", "images/image22.jpg"]' data-caption="Cultural Festival">
+                    <img class="slideshow-img" src="images/image17.jpg" alt="Cultural Fest">
+                    <div class="caption">Cultural Festival</div>
+                </div>
+                <!-- <div class="gallery-item" data-images='["images/music-concert1.jpg", "images/music-concert2.jpg"]' data-caption="Annual Music Concert">
+                    <img class="slideshow-img" src="images/music-concert1.jpg" alt="Music Concert">
+                    <div class="caption">Annual Music Concert</div>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Clubs and Societies</h2><br>
+            <div class="gallery">
+                <div class="gallery-item" data-images='["images/image16.jpg", "images/image20.jpg", "images/image25.jpg", "images/image38.jpg", "images/image39.jpg"]' data-caption="Cadet Corps in Action">
+                    <img class="slideshow-img" src="images/image16.jpg" alt="Cadet Corps">
+                    <div class="caption">Cadet Club in Action</div>
+                </div>
+                <!-- <div class="gallery-item" data-images='["images/music-club1.jpg", "images/music-club2.jpg"]' data-caption="Music Club Rehearsal">
+                    <img class="slideshow-img" src="images/music-club1.jpg" alt="Music Club">
+                    <div class="caption">Music Club Rehearsal</div>
+                </div> -->
+                <!-- <div class="gallery-item" data-images='["images/robotics-club1.jpg", "images/robotics-club2.jpg"]' data-caption="Robotics Club Projects">
+                    <img class="slideshow-img" src="images/robotics-club1.jpg" alt="Robotics Club">
+                    <div class="caption">Robotics Club Projects</div>
+                </div> -->
+                <div class="gallery-item" data-images='["images/image27.png"]' data-caption="Athletics Club">
+                    <img class="slideshow-img" src="images/image27.png" alt="Athletics">
+                    <div class="caption">Athletics Club</div>
+                </div>
+                <!-- <div class="gallery-item" data-images='["images/photography-club1.jpg", "images/photography-club2.jpg"]' data-caption="Photography Club Outing">
+                    <img class="slideshow-img" src="images/photography-club1.jpg" alt="Photography Club">
+                    <div class="caption">Photography Club Outing</div>
+                </div> -->
+                <div class="gallery-item" data-images='["images/school_bus.jpg", "images/school_building_2.jpg", "images/school_building_5.jpg", "images/school_building_6.jpg", "images/school_building_8.jpg", "images/school_building_inside.jpg", "images/school_building_9.png"]' data-caption="School Facilities and Buses">
+                    <img class="slideshow-img" src="images/school_bus.jpg" alt="Chess Club">
+                    <div class="caption">School Facilities and Buses</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="allImagesView" class="all-images-grid"></div>
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Gallery Image">
+            <div class="modal-caption" id="modalCaption"></div>
+            <div class="modal-nav">
+                <button id="prevBtn" onclick="prevImage()">❮</button>
+                <button id="nextBtn" onclick="nextImage()">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+    <script src="campus-life.js"></script>
+</body>
+</html>

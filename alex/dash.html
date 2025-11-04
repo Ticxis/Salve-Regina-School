@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+        .dashboard-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            min-height: 100vh;
+        }
+        .card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        .status-pending { background: #fef3c7; color: #92400e; }
+        .status-approved { background: #d1fae5; color: #065f46; }
+        .status-rejected { background: #fee2e2; color: #991b1b; }
+        .review-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #e5e7eb;
+        }
+        .review-card.pending { border-left-color: #f59e0b; }
+        .review-card.approved { border-left-color: #10b981; }
+        .review-card.rejected { border-left-color: #ef4444; }
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="dashboard-bg">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Review Management Dashboard</h1>
+            <p class="text-xl text-white opacity-90">Salve Regina School Reviews</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card p-6 rounded-xl shadow-lg text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2" id="totalReviews">0</div>
+                <div class="text-gray-600 font-semibold">Total Reviews</div>
+            </div>
+            <div class="card p-6 rounded-xl shadow-lg text-center">
+                <div class="text-3xl font-bold text-yellow-600 mb-2" id="pendingReviews">0</div>
+                <div class="text-gray-600 font-semibold">Pending</div>
+            </div>
+            <div class="card p-6 rounded-xl shadow-lg text-center">
+                <div class="text-3xl font-bold text-green-600 mb-2" id="approvedReviews">0</div>
+                <div class="text-gray-600 font-semibold">Approved</div>
+            </div>
+            <div class="card p-6 rounded-xl shadow-lg text-center">
+                <div class="text-3xl font-bold text-red-600 mb-2" id="rejectedReviews">0</div>
+                <div class="text-gray-600 font-semibold">Rejected</div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="card p-6 rounded-xl shadow-lg mb-8">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-4">
+                    <button id="refreshBtn" class="btn-primary px-6 py-2 rounded-lg text-white font-semibold">
+                        🔄 Refresh
+                    </button>
+                    <button id="exportBtn" class="btn-primary px-6 py-2 rounded-lg text-white font-semibold">
+                        📥 Export JSON
+                    </button>
+                    <input type="file" id="importFile" accept=".json" class="hidden">
+                    <button id="importBtn" class="btn-primary px-6 py-2 rounded-lg text-white font-semibold">
+                        📤 Import JSON
+                    </button>
+                </div>
+                <div class="flex gap-2">
+                    <select id="statusFilter" class="px-4 py-2 border rounded-lg">
+                        <option value="all">All Reviews</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <input type="text" id="searchInput" placeholder="Search reviews..." 
+                           class="px-4 py-2 border rounded-lg w-64">
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="space-y-4" id="reviewsList">
+            <!-- Reviews will be populated here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="card p-12 rounded-xl shadow-lg text-center hidden">
+            <div class="text-6xl mb-4">📝</div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">No Reviews Found</h3>
+            <p class="text-gray-600 mb-6">There are no reviews matching your current filters.</p>
+            <a href="form.html" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold inline-block">
+                Add First Review
+            </a>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="card max-w-2xl w-full max-h-screen overflow-y-auto rounded-xl p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Review Details</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div id="modalContent">
+                <!-- Modal content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class ReviewDashboard {
+            constructor() {
+                this.reviewManager = null;
+                this.currentFilter = 'all';
+                this.currentSearch = '';
+                this.init();
+            }
+
+            init() {
+                // Wait for ReviewManager to be available
+                if (typeof ReviewManager !== 'undefined') {
+                    this.reviewManager = ReviewManager;
+                    this.bindEvents();
+                    this.loadDashboard();
+                } else {
+                    // Fallback: create simple review manager for dashboard
+                    this.createFallbackManager();
+                    this.bindEvents();
+                    this.loadDashboard();
+                }
+            }
+
+            createFallbackManager() {
+                this.reviewManager = {
+                    getAllReviews: () => {
+                        try {
+                            const stored = localStorage.getItem('school_reviews');
+                            return stored ? JSON.parse(stored) : [];
+                        } catch (error) {
+                            return [];
+                        }
+                    },
+                    getStats: () => {
+                        const reviews = this.reviewManager.getAllReviews();
+                        const total = reviews.length;
+                        const pending = reviews.filter(r => r.status === 'pending').length;
+                        const approved = reviews.filter(r => r.status === 'approved').length;
+                        const rejected = reviews.filter(r => r.status === 'rejected').length;
+                        return { total, pending, approved, rejected };
+                    },
+                    updateReviewStatus: (id, status) => {
+                        const reviews = this.reviewManager.getAllReviews();
+                        const review = reviews.find(r => r.id === id);
+                        if (review) {
+                            review.status = status;
+                            review.lastUpdated = new Date().toISOString();
+                            localStorage.setItem('school_reviews', JSON.stringify(reviews));
+                            return true;
+                        }
+                        return false;
+                    },
+                    deleteReview: (id) => {
+                        const reviews = this.reviewManager.getAllReviews();
+                        const filteredReviews = reviews.filter(r => r.id !== id);
+                        localStorage.setItem('school_reviews', JSON.stringify(filteredReviews));
+                        return true;
+                    },
+                    exportReviews: () => {
+                        const reviews = this.reviewManager.getAllReviews();
+                        const dataStr = JSON.stringify(reviews, null, 2);
+                        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                        
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(dataBlob);
+                        link.download = `school-reviews-${new Date().toISOString().split('T')[0]}.json`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                };
+            }
+
+            bindEvents() {
+                document.getElementById('refreshBtn').addEventListener('click', () => this.loadDashboard());
+                document.getElementById('exportBtn').addEventListener('click', () => this.exportReviews());
+                document.getElementById('importBtn').addEventListener('click', () => this.importReviews());
+                document.getElementById('importFile').addEventListener('change', (e) => this.handleImport(e));
+                document.getElementById('statusFilter').addEventListener('change', (e) => this.filterReviews(e.target.value));
+                document.getElementById('searchInput').addEventListener('input', (e) => this.searchReviews(e.target.value));
+                document.getElementById('closeModal').addEventListener('click', () => this.closeModal());
+            }
+
+            loadDashboard() {
+                this.updateStats();
+                this.renderReviews();
+            }
+
+            updateStats() {
+                const stats = this.reviewManager.getStats();
+                document.getElementById('totalReviews').textContent = stats.total;
+                document.getElementById('pendingReviews').textContent = stats.pending;
+                document.getElementById('approvedReviews').textContent = stats.approved;
+                document.getElementById('rejectedReviews').textContent = stats.rejected;
+            }
+
+            renderReviews() {
+                const reviews = this.getFilteredReviews();
+                const container = document.getElementById('reviewsList');
+                const emptyState = document.getElementById('emptyState');
+
+                if (reviews.length === 0) {
+                    container.innerHTML = '';
+                    emptyState.classList.remove('hidden');
+                    return;
+                }
+
+                emptyState.classList.add('hidden');
+                container.innerHTML = reviews.map(review => this.createReviewCard(review)).join('');
+            }
+
+            getFilteredReviews() {
+                let reviews = this.reviewManager.getAllReviews();
+
+                // Filter by status
+                if (this.currentFilter !== 'all') {
+                    reviews = reviews.filter(review => review.status === this.currentFilter);
+                }
+
+                // Filter by search
+                if (this.currentSearch) {
+                    const search = this.currentSearch.toLowerCase();
+                    reviews = reviews.filter(review => 
+                        review.fullName.toLowerCase().includes(search) ||
+                        review.email.toLowerCase().includes(search) ||
+                        review.relationship.toLowerCase().includes(search) ||
+                        review.review.toLowerCase().includes(search)
+                    );
+                }
+
+                // Sort by newest first
+                return reviews.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            }
+
+            createReviewCard(review) {
+                const date = new Date(review.timestamp).toLocaleDateString();
+                const time = new Date(review.timestamp).toLocaleTimeString();
+                
+                return `
+                    <div class="review-card ${review.status} card p-6 rounded-xl shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">${this.escapeHtml(review.fullName)}</h3>
+                                <p class="text-gray-600">${this.escapeHtml(review.relationship)}</p>
+                                <p class="text-sm text-gray-500">${this.escapeHtml(review.email)}</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="status-${review.status} px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${review.status.charAt(0).toUpperCase() + review.status.slice(1)}
+                                </span>
+                                <p class="text-sm text-gray-500 mt-1">${date} ${time}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-700 leading-relaxed">${this.escapeHtml(review.review)}</p>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button onclick="dashboard.viewReview(${review.id})" 
+                                    class="text-blue-600 hover:text-blue-800 font-semibold">
+                                View Details
+                            </button>
+                            <div class="flex gap-2">
+                                ${review.status === 'pending' ? `
+                                    <button onclick="dashboard.approveReview(${review.id})" 
+                                            class="btn-success px-4 py-2 rounded text-white text-sm font-semibold">
+                                        ✓ Approve
+                                    </button>
+                                    <button onclick="dashboard.rejectReview(${review.id})" 
+                                            class="btn-danger px-4 py-2 rounded text-white text-sm font-semibold">
+                                        ✗ Reject
+                                    </button>
+                                ` : `
+                                    <button onclick="dashboard.changeStatus(${review.id}, 'pending')" 
+                                            class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded text-white text-sm font-semibold">
+                                        Reset to Pending
+                                    </button>
+                                `}
+                                <button onclick="dashboard.deleteReview(${review.id})" 
+                                        class="btn-danger px-4 py-2 rounded text-white text-sm font-semibold">
+                                    🗑️ Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            viewReview(id) {
+                const reviews = this.reviewManager.getAllReviews();
+                const review = reviews.find(r => r.id === id);
+                
+                if (!review) return;
+
+                const date = new Date(review.timestamp).toLocaleDateString();
+                const time = new Date(review.timestamp).toLocaleTimeString();
+
+                document.getElementById('modalContent').innerHTML = `
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                                <p class="text-gray-900">${this.escapeHtml(review.fullName)}</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                                <p class="text-gray-900">${this.escapeHtml(review.email)}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Relationship</label>
+                            <p class="text-gray-900">${this.escapeHtml(review.relationship)}</p>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Review</label>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-gray-900 leading-relaxed">${this.escapeHtml(review.review)}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Status</label>
+                                <span class="status-${review.status} px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${review.status.charAt(0).toUpperCase() + review.status.slice(1)}
+                                </span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Submitted</label>
+                                <p class="text-gray-900">${date} at ${time}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('reviewModal').classList.remove('hidden');
+            }
+
+            closeModal() {
+                document.getElementById('reviewModal').classList.add('hidden');
+            }
+
+            approveReview(id) {
+                if (this.reviewManager.updateReviewStatus(id, 'approved')) {
+                    this.loadDashboard();
+                }
+            }
+
+            rejectReview(id) {
+                if (this.reviewManager.updateReviewStatus(id, 'rejected')) {
+                    this.loadDashboard();
+                }
+            }
+
+            changeStatus(id, status) {
+                if (this.reviewManager.updateReviewStatus(id, status)) {
+                    this.loadDashboard();
+                }
+            }
+
+            deleteReview(id) {
+                if (confirm('Are you sure you want to delete this review? This cannot be undone.')) {
+                    if (this.reviewManager.deleteReview(id)) {
+                        this.loadDashboard();
+                    }
+                }
+            }
+
+            filterReviews(status) {
+                this.currentFilter = status;
+                this.renderReviews();
+            }
+
+            searchReviews(query) {
+                this.currentSearch = query;
+                this.renderReviews();
+            }
+
+            exportReviews() {
+                this.reviewManager.exportReviews();
+            }
+
+            importReviews() {
+                document.getElementById('importFile').click();
+            }
+
+            handleImport(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const importedReviews = JSON.parse(event.target.result);
+                        
+                        if (!Array.isArray(importedReviews)) {
+                            alert('Invalid file format. Please select a valid JSON file.');
+                            return;
+                        }
+
+                        // Simple import (overwrite existing)
+                        if (confirm(`Import ${importedReviews.length} reviews? This will replace existing data.`)) {
+                            localStorage.setItem('school_reviews', JSON.stringify(importedReviews));
+                            this.loadDashboard();
+                            alert('Reviews imported successfully!');
+                        }
+                    } catch (error) {
+                        alert('Error reading file. Please ensure it\'s a valid JSON file.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize dashboard
+        const dashboard = new ReviewDashboard();
+    </script>
+</body>
+</html>

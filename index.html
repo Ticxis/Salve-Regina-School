@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salve Regina School - SRS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body id="top">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/srs_logo.png" alt="SRS Logo" id="school-logo">
+            </a>
+            <h1>Salve Regina School</h1>
+         </div>
+         <button class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html" data-page="index">Home</a></li>
+            <li><a href="about.html" data-page="about">About Us</a></li>
+            <li><a href="academics.html" data-page="academics">Academics</a></li>
+            <li><a href="admissions.html" data-page="admissions">Admissions</a></li>
+            <li><a href="campus.html" data-page="campus">Gallery</a></li>
+            <li><a href="contact.html" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="text-container">
+                    <span class="welcome-text">Welcome to&nbsp;</span>
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="cursor" id="cursor"></span>
+                </span>
+            </h1>
+            <p>Shaping Future Leaders with Excellence in Education</p>
+            <button onclick="window.location.href='#admissions'" class="btn shine">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 style="text-align: center;" class="drop-in">About Us</h2>
+            <br><br>
+            <div class="about-content">
+                <div class="about-text">
+                    <p style="text-align: justify;">Salve Regina School is a private pre-tertiary education institution in the Ashanti Region of Ghana.
+                        Established in 2018 with just five children, we now have over 550 learners from the pre-school to junior high level.
+                    </p><br>
+                    <p style="text-align: justify;">
+                        With our world-class facilities and quality teaching and learning, Salve Regina is among the most sought-after schools in the Region.
+                        Situated in the vibrant hills of Abuakwa-Canaan, Kumasi, the school is dedicated to equipping young minds with the tools they need for a bright
+                        future.
+                    </p><br>
+                    <p style="text-align: justify;">Our vision is to provide top-notch education that builds into the creation, in our learners, first class global citizenship with excellent skills and confidence.</p><br>
+                    <!-- <a href="#contact" class="btn secondary">Learn More</a> -->
+                    <button onclick="window.location.href='about.html'" class="btn shine">Learn More</button>
+                </div>
+                <img src="images/school_building_4.jpg" alt="Learners in Classroom" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <div class="container">
+            <h2 style="text-align: center;" class="drop-in">Academics</h2><br><br>
+            <div class="academics-grid">
+                <div class="card">
+                    <img src="images/image3.jpg" alt="Preschool">
+                    <h3>PreSchool</h3>
+                    <p>Our child-friendly pre-school ensures that your child combines childhood enjoyment with academics seamlessly. 
+                        We have games, audio visuals, friendly and safe environment as well as highly trained attendants and teachers.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="images/image13.jpg" alt="Primary">
+                    <h3>Primary</h3>
+                    <p>From visual arts to literature, our programmes nurture creativity and critical thinking.</p>
+                </div>
+                <div class="card">
+                    <img src="images/image10.jpg" alt="JHS">
+                    <h3>JHS</h3>
+                    <p>Our athletic programmes promote teamwork, discipline, and physical well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Admissions Section -->
+    <section id="admissions" class="admissions-enhanced">
+        <div class="container">
+            <!-- Header -->
+            <div class="admissions-header fade-in-enhanced">
+                <h2>Join Our School Family</h2>
+                <p class="admissions-intro">
+                    Begin your child's educational journey with us. Our comprehensive admissions process 
+                    ensures we find the perfect fit for every learner in our vibrant learning community.
+                </p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="admissions-stats">
+                <div class="stat-card fade-in-enhanced">
+                    <div class="stat-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Acceptance Rate</div>
+                </div>
+                <div class="stat-card fade-in-enhanced">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Days Average Response</div>
+                </div>
+                <div class="stat-card fade-in-enhanced">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Maximum learners per Class</div>
+                </div>
+                <div class="stat-card fade-in-enhanced">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-number">Year-Round</div>
+                    <div class="stat-label">Applications Open</div>
+                </div>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="admissions-process">
+                <div class="process-header fade-in-enhanced">
+                    <h3 class="process-title">Simple Application Process</h3>
+                    <p class="process-subtitle">
+                        Our streamlined process makes it easy for families to join our community
+                    </p>
+                </div>
+
+                <div class="admissions-steps-enhanced">
+                    <div class="step-enhanced slide-in-left-enhanced">
+                        <div class="step-number">1</div>
+                        <h3>Introductory Call</h3>
+                        <p>Contact the admission team to know more about the admission process</p>
+                        <div class="step-duration">15 minutes</div>
+                    </div>
+                    <div class="step-enhanced fade-in-enhanced">
+                        <div class="step-number">2</div>
+                        <h3>Schedule Interview</h3>
+                        <p>Book a convenient time for a campus tour and family interview with our admissions team.</p>
+                        <div class="step-duration">1 hour</div>
+                    </div>
+                    <div class="step-enhanced slide-in-right-enhanced">
+                        <div class="step-number">3</div>
+                        <h3>Assessment & Decision</h3>
+                        <p>Your child participates in a friendly assessment, and you receive our admission decision.</p>
+                        <div class="step-duration">3-7 days</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="requirements-section fade-in-enhanced">
+                <h3 class="requirements-title">What You'll Need</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Application Form</h4>
+                            <p>Completed application with learner and family information</p>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Academic Records</h4>
+                            <p>Previous school reports and transcripts (if applicable)</p>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Identification</h4>
+                            <p>Birth certificate and passport-sized photographs</p>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Medical Records</h4>
+                            <p>Current immunization/relevant health records/health insurance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Timeline
+            <div class="timeline-section fade-in-enhanced">
+                <h3 class="timeline-title">Application Deadlines</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content slide-in-left-enhanced">
+                            <div class="timeline-date">September - November</div>
+                            <h4>Early Application Period</h4>
+                            <p>Submit your application early for priority consideration and reduced fees.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content slide-in-right-enhanced">
+                            <div class="timeline-date">December - February</div>
+                            <h4>Regular Application Period</h4>
+                            <p>Standard application period with normal processing times.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content slide-in-left-enhanced">
+                            <div class="timeline-date">March - May</div>
+                            <h4>Late Application Period</h4>
+                            <p>Limited spaces available. Quick turnaround for urgent applications.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content slide-in-right-enhanced">
+                            <div class="timeline-date">Year-Round</div>
+                            <h4>Mid-Year Transfers</h4>
+                            <p>We welcome transfer students throughout the academic year.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Call to Action -->
+            <div class="admissions-cta fade-in-enhanced">
+                <h3 class="cta-title">Ready to Start?</h3>
+                <p class="cta-subtitle">Take the first step towards your child's bright future with us</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-enhanced btn-primary">
+                        <i class="fas fa-edit"></i>
+                        Start Application
+                    </a>
+                    <a href="contact.html" class="btn-enhanced btn-secondary">
+                        <i class="fas fa-calendar"></i>
+                        Schedule Tour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="campus" class="campus">
+        <div class="container">
+            <h2 style="text-align: center;">Gallery</h2><br><br>
+            <div class="campus-gallery">
+                <div class="slider">
+                    <img src="images/image6.jpg" alt="Gallery 1">
+                    <img src="images/image7.jpg" alt="Gallery 2">
+                    <img src="images/image9.jpg" alt="Gallery 3">
+                    <img src="images/image5.jpg" alt="Gallery 4">
+                    <img src="images/image8.jpg" alt="Gallery 5">
+                </div>
+                <button class="nav-arrow prev">&#10094;</button>
+                <button class="nav-arrow next">&#10095;</button>
+                <div class="dots"></div>
+            </div>
+            <p>Our campus is a vibrant hub of activity, with state-of-the-art facilities, extracurricular clubs, and a supportive community.</p>
+        </div>
+    </section>
+
+    <!-- Animated counter -->
+    <section id="stats">
+        <div class="stats-container">
+          <!-- <h2 class="stats-title">Our Achievements</h2> -->
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="counter" data-target="7">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Years of Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="23">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Professional Teachers</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="26">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Classes</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="550">0</span>
+              <span class="stat-line">|</span>
+              <span class="stat-text">Learners</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+  
+    <section class="section-carousel-one">
+        <div class="section-container-one">
+            <h2 class="section-cont">Reviews</h2><br><br>
+            <div class="carousel-container">
+                <div class="carousel-class"  id="reviewCarousel">
+                    
+                </div>
+            </div>
+            <div class="controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column" id="first-footer-column">
+                <img src="images/srs_logo.png" alt="SRS_Logo" class="footer-logo">
+                <p style="float: left; text-align: center;">
+                    <span class="bottom-text">Salve Regina School</span>
+                    <span style="color: orange;" class="bottom-text">Gloriam Deo</span>
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+233 55 882 6157">(+233) 55 882 6157</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Abuakwa Canaan Hills - Kumasi A/R GPS: AH-1051-1951 Victoria Opoku Ware RD, Kumasi Ghana</p>
+                <p><i class="fas fa-paper-plane"></i> <a href="mailto:salvereginaschool@outlook.com">salvereginaschool@outlook.com</a></p>
+                <div class="social-icons">
+                    <a href="https://m.facebook.com/profile.php?id=100086041194373&profile_tab_item_selected=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href=https://youtu.be/YI32LWGJfpA?si=VcMVGgWDF_fJAc6I" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+
+
+
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="campus.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="color: #3498db;">Subscribe</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <a href="form.html" class="back-to-top-container" aria-label="Back to top">
+                <div class="back-to-top"></div>
+                <span class="back-to-top-text">Enter a review</span>
+            </a>
+        </div>
+        <!-- <div class="footer_div">
+            <p>&copy;2025 Salve Regina School. All rights reserved</p>
+        </div> -->
+    </footer>
+    <div style="background-color: #3498db; height: 40px; width: 100%;align-items: center; justify-content: center; display: flex;">
+        <p style="color: white;">&copy;2025 Salve Regina School | All rights reserved</p>
+    </div>
+
+    <script defer src="script.js"></script>
+    <script src="reviews.js"></script>
+    <script src="global-db.js"></script>
+</body>
+</html>
